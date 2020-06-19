@@ -97,39 +97,39 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="editarModalLabel">Novo usuário</h5>
+                                    <h5 class="modal-title" id="editarModalLabel">Novo colaborador</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form">
+                                <form role="form" method="POST" action="cadastrousuarios.php">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Nome completo</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Insira seu nome aqui">
+                                                <input type="text" class="form-control" name="nome" id="txtnome" placeholder="Insira seu nome">
                                             </div>
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Endereço</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Insira seu endereço aqui">
+                                                <input type="text" class="form-control" name="endereco" id="textendereco" placeholder="Insira seu endereço">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">CPF</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Insira seu CPF aqui">
+                                                <input type="text" class="form-control" name="cpf" id="exampleInputEmail1" placeholder="Insira seu CPF">
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">RG</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Insira seu RG aqui">
+                                                <input type="text" class="form-control" name="rg" id="exampleInputEmail1" placeholder="Insira seu RG">
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Status</label>
                                                 <select class="form-control">
                                                     <option value="">Selecione algo</option>
-                                                    <option value="">Ativo</option>
-                                                    <option value="">Desligado</option>
+                                                    <option value="0" name="ativo">Ativo</option>
+                                                    <option value="1" name="ativo">Desligado</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -137,37 +137,37 @@
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Sexo</label>
                                                 <select class="form-control">
-                                                    <option value="">Selecione algo</option>
-                                                    <option value="">Masculino</option>
-                                                    <option value="">Feminino</option>
+                                                    <option value="">Selecione</option>
+                                                    <option value="0" name="sexo">Masculino</option>
+                                                    <option value="1" name="sexo">Feminino</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Cargo</label>
                                                 <select class="form-control">
                                                     <option value="">Selecione o cargo</option>
-                                                    <option value="">Opção 1</option>
-                                                    <option value="">Opção 2</option>
+                                                    <option value="1" name="cargo">Opção 1</option>
+                                                    <option value="2" name="cargo">Opção 2</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Telefone</label>
-                                                <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Telefone com DDD">
+                                                <input type="text" class="form-control" name="telefone"id="exampleInputEmail1" maxlength="15" placeholder="Telefone com DDD" />
                                             </div>
                                             <div class="form-group col-lg-6">
-                                                <label for="exampleInputEmail1">Email</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Insira seu e-mail aqui">
+                                                <label for="exampleInputEmail1">E-mail</label>
+                                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Insira seu e-mail ">
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Nascimento</label>
-                                                <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Insira seu emai aqui">
+                                                <input type="date" class="form-control" name="nascimento" id="exampleInputEmail1"  pattern="^\d{4}-\d{3}-\d{4}$" >
                                             </div>
                                         </div>
                                         <div class="box-actions">
-                                            <button type="submit" class="btn btn-primary">Enviar</button>
-                                            <button class="btn btn-danger">Cancelar</button>
+                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                            <button class="btn btn-danger">Editar</button>
                                         </div>
                                  
                                     </fieldset>
