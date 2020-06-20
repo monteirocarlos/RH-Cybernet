@@ -103,7 +103,7 @@
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="cadastrousuarios.php">
+                                <form role="form" method="POST" action="usuarios.php">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-6">
@@ -126,28 +126,28 @@
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Status</label>
-                                                <select class="form-control">
+                                                <select name="ativo" class="form-control">
                                                     <option value="">Selecione algo</option>
-                                                    <option value="0" name="ativo">Ativo</option>
-                                                    <option value="1" name="ativo">Desligado</option>
+                                                    <option value=0>Ativo</option>
+                                                    <option value=1>Desligado</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Sexo</label>
-                                                <select class="form-control">
+                                                <select name="sexo" class="form-control">
                                                     <option value="">Selecione</option>
-                                                    <option value="0" name="sexo">Masculino</option>
-                                                    <option value="1" name="sexo">Feminino</option>
+                                                    <option value=0>Masculino</option>
+                                                    <option value=1>Feminino</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Cargo</label>
-                                                <select class="form-control">
+                                                <select name="cargo" class="form-control">
                                                     <option value="">Selecione o cargo</option>
-                                                    <option value="1" name="cargo">Opção 1</option>
-                                                    <option value="2" name="cargo">Opção 2</option>
+                                                    <option value=1>Opção 1</option>
+                                                    <option value=2>Opção 2</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -166,8 +166,7 @@
                                             </div>
                                         </div>
                                         <div class="box-actions">
-                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                            <button class="btn btn-danger">Editar</button>
+                                            <button type="submit" class="btn btn-primary">Salvar</button>
                                         </div>
                                  
                                     </fieldset>

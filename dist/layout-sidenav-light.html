@@ -103,7 +103,7 @@
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="cadastrousuarios.php">
+                                <form role="form" method="POST">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
@@ -112,20 +112,20 @@
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nível</label>
-                                                <select class="form-control">
+                                                <select  name="nivel" class="form-control">
                                                     <option value="">Selecione algo</option>
-                                                    <option value="0" name="ativo">Júnior</option>
-                                                    <option value="1" name="ativo">Pleno</option>
-                                                    <option value="1" name="ativo">Sênior</option>
-                                                    <option value="1" name="ativo">Master</option>
+                                                    <option value="0">Júnior</option>
+                                                    <option value="1">Pleno</option>
+                                                    <option value="1">Sênior</option>
+                                                    <option value="1">Master</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Setor</label>
-                                                <select class="form-control">
+                                                <select name="setor" class="form-control">
                                                     <option value="">Selecione algo</option>
-                                                    <option value="0" name="ativo">NOC</option>
-                                                    <option value="1" name="ativo">Ativação</option>
+                                                    <option value="0">NOC</option>
+                                                    <option value="1">Ativação</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-12">
@@ -133,7 +133,7 @@
                                                 <textarea type="textarea" class="form-control" name="nome" id="txtnome" placeholder="Insira seu nome"></textarea>
                                             </div>
                                         <div class="box-actions">
-                                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                            <button type="submit" class="btn btn-primary">Salvar</button>
                                             <button class="btn btn-danger">Editar</button>
                                         </div>
                                  
