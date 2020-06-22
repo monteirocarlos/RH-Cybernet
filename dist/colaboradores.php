@@ -24,8 +24,13 @@ include "banco.php";
                 <div class="card mb-4">
                     <div class="teste">
                         <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#editarModal" >Novo</button>&nbsp 		
-                        <button type="button" class="btn btn-success">Alterar</button>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#alterarModal">Alterar</button>
+                        <div class="md-form mt-4">
+                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                     </div>
+                    
+                    </div>
+                    
                     
                     <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -115,6 +120,7 @@ include "banco.php";
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Nome</th>
                                         <th>Nascimento</th>
                                         <th>Sexo</th>
@@ -132,6 +138,7 @@ include "banco.php";
                                 $con = $mysqli->query($lista_colaboradores) or die ($mysqli->error);
                                 while($dados = $con->fetch_array()){ ?>
                                 <tbody>
+                                    <td><INPUT type="checkbox"/><?php $dados['id_colaborador'];?></td>
                                     <td><?php echo $dados['nome'];?></td>
                                     <td><?php echo $dados['nascimento'];?></td>
                                     <td><?php
@@ -155,6 +162,94 @@ include "banco.php";
                         </div>
                     </div>
                 </div>
+                   
+                    <div class="modal fade" id="alterarModal" tabindex="-1" role="dialog" aria-labelledby="alterarModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="alterarModalLabel">Editar colaborador</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <div class="modal-body">
+                                <form role="form" method="POST" action="editar.php">
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">Nome completo</label>
+                                                <input type="text" class="form-control" name="nome" id="txtnome" placeholder="Insira seu nome">
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">Endereço</label>
+                                                <input type="text" class="form-control" name="endereco" id="textendereco" placeholder="Insira seu endereço">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">CPF</label>
+                                                <input type="text" class="form-control" name="cpf" id="exampleInputEmail1" placeholder="Insira seu CPF">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">RG</label>
+                                                <input type="text" class="form-control" name="rg" id="exampleInputEmail1" placeholder="Insira seu RG">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Status</label>
+                                                <select name="ativo" class="form-control">
+                                                    <option value="">Selecione algo</option>
+                                                    <option value=0>Ativo</option>
+                                                    <option value=1>Desligado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">Sexo</label>
+                                                <select name="sexo" class="form-control">
+                                                    <option value="">Selecione</option>
+                                                    <option value=0>Masculino</option>
+                                                    <option value=1>Feminino</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">Cargo</label>
+                                                <select name="cargo" class="form-control">
+                                                    <option value="">Selecione o cargo</option>
+                                                    <option value=1>Opção 1</option>
+                                                    <option value=2>Opção 2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Telefone</label>
+                                                <input type="text" class="form-control" name="telefone"id="exampleInputEmail1" maxlength="15" placeholder="Telefone com DDD" />
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">E-mail</label>
+                                                <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Insira seu e-mail ">
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Nascimento</label>
+                                                <input type="date" class="form-control" name="nascimento" id="exampleInputEmail1">
+                                            </div>
+                                        </div>
+                                        <div class="box-actions">
+                                            <button type="submit" class="btn btn-primary">Salvar</button>
+                                        </div>
+                                 
+                                    </fieldset>
+                                </form>
+                            </div>		
+                        </div>
+                        </div>
+                        </div>
+
+
+
+
+
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">

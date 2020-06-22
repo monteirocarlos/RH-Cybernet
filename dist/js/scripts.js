@@ -21,6 +21,10 @@
     });
 })(jQuery);
 
+    // Modal
 $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
+
+      // Dados coletados da tabela
+      
