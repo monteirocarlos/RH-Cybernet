@@ -1,3 +1,9 @@
+<?php
+include "banco.php";
+$lista_colaboradores = "SELECT * FROM tb_colaboradores";
+$con = $mysqli->query($lista_colaboradores) or die ($mysqli->error); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -84,7 +90,7 @@
                                         <div class="row">
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Telefone</label>
-                                                <input type="text" class="form-control" name="telefone"id="exampleInputEmail1" maxlength="15" placeholder="Telefone com DDD" />
+                                                <input type="tel" class="form-control" name="telefone"id="exampleInputEmail1" maxlength="15" placeholder="Telefone com DDD" />
                                             </div>
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">E-mail</label>
@@ -120,24 +126,25 @@
                                         <th>Endereço</th>
                                         <th>Telefone</th>
                                         <th>Cargo</th>
-                                        <th>Ativo</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
+                                
+                                <?php while($dados = $con->fetch_array()){ ?>
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                      
-                                </tbody>
+                                    <td><?php echo $dados['nome'];?></td>
+                                    <td><?php echo $dados['nascimento'];?></td>
+                                    <td><?php echo $dados['id_sexo'];?></td>
+                                    <td><?php echo $dados['cpf'];?></td>
+                                    <td><?php echo $dados['rg'];?></td>
+                                    <td><?php echo $dados['email'];?></td>
+                                    <td><?php echo $dados['endereco'];?></td>
+                                    <td><?php echo $dados['telefone'];?></td>
+                                    <td><?php echo $dados['id_cargo'];?></td>
+                                    <td><?php echo $dados['ativo'];?></td> 
+                            </tbody>
+                            <?php } ?>  
+                            
                             </table>
                         </div>
                     </div>
