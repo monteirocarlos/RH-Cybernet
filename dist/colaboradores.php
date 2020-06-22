@@ -1,7 +1,5 @@
 <?php
 include "banco.php";
-$lista_colaboradores = "SELECT * FROM tb_colaboradores";
-$con = $mysqli->query($lista_colaboradores) or die ($mysqli->error); 
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +88,7 @@ $con = $mysqli->query($lista_colaboradores) or die ($mysqli->error);
                                         <div class="row">
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Telefone</label>
-                                                <input type="tel" class="form-control" name="telefone"id="exampleInputEmail1" maxlength="15" placeholder="Telefone com DDD" />
+                                                <input type="text" class="form-control" name="telefone"id="exampleInputEmail1" maxlength="15" placeholder="Telefone com DDD" />
                                             </div>
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">E-mail</label>
@@ -98,7 +96,7 @@ $con = $mysqli->query($lista_colaboradores) or die ($mysqli->error);
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Nascimento</label>
-                                                <input type="date" class="form-control" name="nascimento" id="exampleInputEmail1"  pattern="^\d{4}-\d{3}-\d{4}$" >
+                                                <input type="date" class="form-control" name="nascimento" id="exampleInputEmail1">
                                             </div>
                                         </div>
                                         <div class="box-actions">
@@ -129,12 +127,22 @@ $con = $mysqli->query($lista_colaboradores) or die ($mysqli->error);
                                         <th>Status</th>
                                     </tr>
                                 </thead>
-                                
-                                <?php while($dados = $con->fetch_array()){ ?>
+                                <?php 
+                                $lista_colaboradores = "SELECT * FROM tb_colaboradores";
+                                $con = $mysqli->query($lista_colaboradores) or die ($mysqli->error);
+                                while($dados = $con->fetch_array()){ ?>
                                 <tbody>
                                     <td><?php echo $dados['nome'];?></td>
                                     <td><?php echo $dados['nascimento'];?></td>
-                                    <td><?php echo $dados['id_sexo'];?></td>
+                                    <td><?php
+	                                switch ($dados['id_sexo']) {
+                                    case 0:
+                                    echo "Masculino";
+                                    break;
+                                    case 1:
+                                    echo "Feminino";
+                                    break;};?>
+		                            </td>
                                     <td><?php echo $dados['cpf'];?></td>
                                     <td><?php echo $dados['rg'];?></td>
                                     <td><?php echo $dados['email'];?></td>
@@ -142,9 +150,7 @@ $con = $mysqli->query($lista_colaboradores) or die ($mysqli->error);
                                     <td><?php echo $dados['telefone'];?></td>
                                     <td><?php echo $dados['id_cargo'];?></td>
                                     <td><?php echo $dados['ativo'];?></td> 
-                            </tbody>
-                            <?php } ?>  
-                            
+                            </tbody> <?php } ?>                               
                             </table>
                         </div>
                     </div>
