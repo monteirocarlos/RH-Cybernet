@@ -24,7 +24,6 @@ include "banco.php";
                 <div class="card mb-4">
                     <div class="teste">
                         <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#editarModal" >Novo</button>&nbsp 		
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#alterarModal">Alterar</button>
                     </div>
                     
                     
@@ -262,17 +261,17 @@ include "banco.php";
 <script>
 function editar(e) {
   var linha = $(e).closest("tr");
-  var nome = linha.find("td:eq(0)").text().trim(); // texto da primeira coluna
-  var nascimento = linha.find("td:eq(1)").text().trim(); // texto da quarta coluna
-  var sexo1 = linha.find("td:eq(2)").text().trim(); // texto da quarta coluna
-  var cpf = linha.find("td:eq(3)").text().trim(); // texto da segunda coluna
-  var rg = linha.find("td:eq(4)").text().trim(); // texto da terceira coluna
-  var email = linha.find("td:eq(5)").text().trim(); // texto da quarta coluna
-  var endereco = linha.find("td:eq(6)").text().trim(); // texto da primeira coluna
-  var telefone = linha.find("td:eq(7)").text().trim(); // texto da quarta coluna
-  var cargo = linha.find("td:eq(8)").text().trim(); // texto da quarta coluna
-  var ativo = linha.find("td:eq(9)").text().trim(); // texto da quarta coluna
-  var id = linha.find("td:eq(10)").text().trim(); // texto da quarta coluna
+  var nome = linha.find("td:eq(0)").text().trim();
+  var nascimento = linha.find("td:eq(1)").text().trim(); 
+  var sexo1 = linha.find("td:eq(2)").text().trim(); 
+  var cpf = linha.find("td:eq(3)").text().trim(); 
+  var rg = linha.find("td:eq(4)").text().trim(); 
+  var email = linha.find("td:eq(5)").text().trim(); 
+  var endereco = linha.find("td:eq(6)").text().trim(); 
+  var telefone = linha.find("td:eq(7)").text().trim(); 
+  var cargo = linha.find("td:eq(8)").text().trim(); 
+  var ativo = linha.find("td:eq(9)").text().trim(); 
+  var id = linha.find("td:eq(10)").text().trim();
 
     
   $("#modalnome").val(nome);
