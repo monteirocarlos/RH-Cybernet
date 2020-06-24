@@ -1,3 +1,5 @@
+<?php include "banco.php" ?> 
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,11 +21,10 @@
             <div id="layoutSidenav_content">
                 <div class="card mb-4">
                     <div class="teste">
-                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#editarModal" >Novo</button>&nbsp 		
-                        <button type="button" class="btn btn-success">Alterar</button>
+                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#setorModal" >Novo</button>&nbsp 		
                     </div>
                     
-                    <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="setorModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -33,38 +34,57 @@
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST">
+                                <form role="form" method="POST" action="grvcargos.php">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Cargo</label>
-                                                <input type="text" class="form-control" name="nome" id="txtnome" placeholder="Insira seu nome">
-                                            </div>
-                                            <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Nível</label>
-                                                <select  name="nivel" class="form-control">
-                                                    <option value="">Selecione algo</option>
-                                                    <option value="0">Júnior</option>
-                                                    <option value="1">Pleno</option>
-                                                    <option value="1">Sênior</option>
-                                                    <option value="1">Master</option>
-                                                </select>
+                                                <input type="text" class="form-control" name="id_cargo" id="id_cargo" placeholder="Insira o cargo">
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Setor</label>
-                                                <select name="setor" class="form-control">
-                                                    <option value="">Selecione algo</option>
-                                                    <option value="0">NOC</option>
-                                                    <option value="1">Ativação</option>
+                                                <select name="id_setor" id="id_setor" class="form-control">
+                                                    <option value="">Selecionar</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_setores";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['id_setor'].'">'.$row_cat_post['nome'].'</option>';
+					                                }
+				                                    ?>
                                                 </select>
                                             </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Nível</label>
+                                                <select name="id_nivel" id="id_nivel" class="form-control">
+                                                    <option value="">Selecionar</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_categoria";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['id_categoria'].'">'.$row_cat_post['categoria'].'</option>';
+					                                }
+				                                    ?>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">CBO</label>
+                                                <input type="text" class="form-control" name="id_cbo" id="id_cbo" placeholder="Insira o CBO">
+                                            </div>
+
+                                            
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">Salário</label>
+                                                <input type="text" class="form-control" name="id_salario" id="id_salario" placeholder="Insira o salário">
+                                            </div>
+
                                             <div class="form-group col-lg-12">
                                                 <label for="exampleInputEmail1">Descrição</label>
-                                                <textarea type="textarea" class="form-control" name="nome" id="txtnome" placeholder="Insira seu nome"></textarea>
+                                                <textarea type="textarea" class="form-control" name="id_descricao" id="id_descricao" placeholder="Insira a descrição de cargo"></textarea>
                                             </div>
                                         <div class="box-actions">
                                             <button type="submit" class="btn btn-primary">Salvar</button>
-                                            <button class="btn btn-danger">Editar</button>
                                         </div>
                                  
                                     </fieldset>
@@ -80,8 +100,10 @@
                                 <thead>
                                     <tr>
                                         <th>Cargo</th>
-                                        <th>Nível</th>
                                         <th>Setor</th>
+                                        <th>Nível</th>
+                                        <th>CBO</th>
+                                        <th>Salário</th>
                                         <th>Descrição</th>
                                         
                                     </tr>
@@ -90,6 +112,8 @@
                                     <tr>
                                         <td>Tiger Nixon</td>
                                         <td>System Architect</td>
+                                        <td>Edinburgh</td>
+                                        <td>Edinburgh</td>
                                         <td>Edinburgh</td>
                                         <td>Edinburgh</td>
                                     </tr>

@@ -72,8 +72,13 @@ include "banco.php";
                                                 <label for="exampleInputEmail1">Sexo</label>
                                                 <select name="sexo" class="form-control">
                                                     <option value="">Selecione</option>
-                                                    <option value=0>Masculino</option>
-                                                    <option value=1>Feminino</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_sexo ORDER BY sexo";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['id_sexo'].'">'.$row_cat_post['sexo'].'</option>';
+					                                }
+				                                    ?>
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-6">
@@ -203,8 +208,13 @@ include "banco.php";
                                                 <label for="exampleInputEmail1">Sexo</label>
                                                 <select name="modalsexo" id="modalsexo"class="form-control">
                                                     <option value="">Selecione</option>
-                                                    <option value=0>Masculino</option>
-                                                    <option value=1>Feminino</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_sexo ORDER BY sexo";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['id_sexo'].'">'.$row_cat_post['sexo'].'</option>';
+					                                }
+				                                    ?>
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-6">
