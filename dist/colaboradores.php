@@ -1,7 +1,3 @@
-<?php
-include "banco.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -289,6 +285,5 @@ function editar(e) {
 }
 
 </script>
-
-    </body>
+</body>
 </html>
