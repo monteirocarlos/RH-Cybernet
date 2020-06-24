@@ -24,8 +24,9 @@ include "banco.php";
                 <div class="card mb-4">
                     <div class="teste">
                         <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#editarModal" >Novo</button>&nbsp 		
-                        <button type="button" class="btn btn-success">Alterar</button>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#alterarModal">Alterar</button>
                     </div>
+                    
                     
                     <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -125,6 +126,8 @@ include "banco.php";
                                         <th>Telefone</th>
                                         <th>Cargo</th>
                                         <th>Status</th>
+                                        <th>ID</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <?php 
@@ -134,15 +137,7 @@ include "banco.php";
                                 <tbody>
                                     <td><?php echo $dados['nome'];?></td>
                                     <td><?php echo $dados['nascimento'];?></td>
-                                    <td><?php
-	                                switch ($dados['id_sexo']) {
-                                    case 0:
-                                    echo "Masculino";
-                                    break;
-                                    case 1:
-                                    echo "Feminino";
-                                    break;};?>
-		                            </td>
+                                    <td><?php echo $dados['id_sexo'];?></td>
                                     <td><?php echo $dados['cpf'];?></td>
                                     <td><?php echo $dados['rg'];?></td>
                                     <td><?php echo $dados['email'];?></td>
@@ -150,11 +145,103 @@ include "banco.php";
                                     <td><?php echo $dados['telefone'];?></td>
                                     <td><?php echo $dados['id_cargo'];?></td>
                                     <td><?php echo $dados['ativo'];?></td> 
-                            </tbody> <?php } ?>                               
+                                    <td><?php echo $dados['id_colaborador'];?></td> 
+                                    <td>  
+                                    <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#alterarModal" class="btnEditar" onclick="editar(this)"></i>
+                                    </td>
+                                    <?php } ?>
+                            </tbody>                            
                             </table>
                         </div>
                     </div>
                 </div>
+                   
+                    <div class="modal fade" id="alterarModal" tabindex="-1" role="dialog" aria-labelledby="alterarModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="alterarModalLabel">Editar colaborador</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <form role="form" method="POST" action="edita.php">
+                                    <fieldset>
+                                    <div class="form-group">
+				                    <input type="hidden"  class="form-control"name="modalId" id="modalId" />
+				                    </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-6">
+                                                <label for="">Nome Completo</label>
+                                                <input type="text" class="form-control" name="modalnome" id="modalnome">
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">Endereço</label>
+                                                <input type="text" class="form-control" name="modalendereco" id="modalendereco">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">CPF</label>
+                                                <input type="text" class="form-control" name="modalcpf" id="modalcpf">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">RG</label>
+                                                <input type="text" class="form-control" name="modalrg" id="modalrg">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Status</label>
+                                                <select name="modalativo" id="modalativo" class="form-control">
+                                                    <option value="">Selecione algo</option>
+                                                    <option value=0>Ativo</option>
+                                                    <option value=1>Desligado</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">Sexo</label>
+                                                <select name="modalsexo" id="modalsexo"class="form-control">
+                                                    <option value="">Selecione</option>
+                                                    <option value=0>Masculino</option>
+                                                    <option value=1>Feminino</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">Cargo</label>
+                                                <select name="modalcargo" id="modalcargo" class="form-control">
+                                                    <option value="">Selecione o cargo</option>
+                                                    <option value=1>Opção 1</option>
+                                                    <option value=2>Opção 2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Telefone</label>
+                                                <input type="text" class="form-control" name="modaltelefone"id="modaltelefone" />
+                                            </div>
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">E-mail</label>
+                                                <input type="email" class="form-control" name="modalemail" id="modalemail">
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Nascimento</label>
+                                                <input type="date" class="form-control" name="modalnascimento" id="modalnascimento">
+                                            </div>
+                                        </div>
+                                        <div class="box-actions">
+                                            <button type="submit" class="btn btn-primary">Salvar</button>
+                                        </div>
+                                 
+                                    </fieldset>
+                                </form>
+                            </div>		
+                        </div>
+                        </div>
+                        </div>
+
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
@@ -172,5 +259,36 @@ include "banco.php";
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
+<script>
+function editar(e) {
+  var linha = $(e).closest("tr");
+  var nome = linha.find("td:eq(0)").text().trim(); // texto da primeira coluna
+  var nascimento = linha.find("td:eq(1)").text().trim(); // texto da quarta coluna
+  var sexo1 = linha.find("td:eq(2)").text().trim(); // texto da quarta coluna
+  var cpf = linha.find("td:eq(3)").text().trim(); // texto da segunda coluna
+  var rg = linha.find("td:eq(4)").text().trim(); // texto da terceira coluna
+  var email = linha.find("td:eq(5)").text().trim(); // texto da quarta coluna
+  var endereco = linha.find("td:eq(6)").text().trim(); // texto da primeira coluna
+  var telefone = linha.find("td:eq(7)").text().trim(); // texto da quarta coluna
+  var cargo = linha.find("td:eq(8)").text().trim(); // texto da quarta coluna
+  var ativo = linha.find("td:eq(9)").text().trim(); // texto da quarta coluna
+  var id = linha.find("td:eq(10)").text().trim(); // texto da quarta coluna
+
+    
+  $("#modalnome").val(nome);
+  $("#modalendereco").val(endereco);
+  $("#modalcpf").val(cpf);
+  $("#modalrg").val(rg);
+  $("#modalativo").val(ativo);
+  $("#modalsexo").val(sexo1);
+  $("#modalcargo").val(cargo);
+  $("#modaltelefone").val(telefone);
+  $("#modalemail").val(email);
+  $("#modalnascimento").val(nascimento);
+  $("#modalId").val(id);
+}
+
+</script>
+
     </body>
 </html>
