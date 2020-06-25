@@ -85,8 +85,14 @@ include "banco.php";
                                                 <label for="exampleInputEmail1">Cargo</label>
                                                 <select name="cargo" class="form-control">
                                                     <option value="">Selecione o cargo</option>
-                                                    <option value=1>Opção 1</option>
-                                                    <option value=2>Opção 2</option>
+                                                    <option value="">Selecione o cargo</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['id_cargo'].'">'.$row_cat_post['cargo'].'</option>';
+					                                }
+				                                    ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -221,8 +227,13 @@ include "banco.php";
                                                 <label for="exampleInputEmail1">Cargo</label>
                                                 <select name="modalcargo" id="modalcargo" class="form-control">
                                                     <option value="">Selecione o cargo</option>
-                                                    <option value=1>Opção 1</option>
-                                                    <option value=2>Opção 2</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['id_cargo'].'">'.$row_cat_post['cargo'].'</option>';
+					                                }
+				                                    ?>
                                                 </select>
                                             </div>
                                         </div>
