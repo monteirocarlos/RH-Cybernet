@@ -21,8 +21,9 @@
             <div id="layoutSidenav_content">
                 <div class="card mb-4">
                     <div class="teste">
-                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#setorModal" >Novo cargo</button>&nbsp 		
-                    </div>
+                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#setorModal" >Novo cargo</button>&nbsp 
+                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#setorModal" >Novo setor</button>&nbsp 		
+		</div>
                     
                     <div class="modal fade" id="setorModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -114,6 +115,7 @@
                                 $lista_cargos = "SELECT * FROM tb_cargo";
                                 $con = $mysqli->query($lista_cargos) or die ($mysqli->error);
                                 while($dados = $con->fetch_array()){ ?>
+                                
                                 <tbody>
                                     <td><?php echo $dados['id_cargo'];?></td>
                                     <td><?php echo $dados['cargo'];?></td>
