@@ -15,8 +15,7 @@
             <!-- Navbar-->
             
             <?php
-            session_start();
-            include('menu.php');
+            include "view/menudash.php";
             ?>
 
             <div id="layoutSidenav_content">

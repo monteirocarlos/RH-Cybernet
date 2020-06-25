@@ -1,4 +1,4 @@
-<?php include "banco.php" ?> 
+<?php include "../model/banco.php";?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="grvcargos.php">
+                                <form role="form" method="POST" action="../model/grvcargos.php">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
@@ -142,7 +142,7 @@
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="grv_edt_cargos.php">
+                                <form role="form" method="POST" action="../model/grv_edt_cargos.php">
                                     <fieldset>
                                     <div class="form-group">
 				                    <input type="hidden"  class="form-control"name="modalId" id="modalId" />

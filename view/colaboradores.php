@@ -1,5 +1,5 @@
 <?php
-include "banco.php";
+include "../model/banco.php";
 ?>
 
 <!DOCTYPE html>

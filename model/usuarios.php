@@ -18,5 +18,5 @@ $executa = "INSERT INTO tb_colaboradores (nome, nascimento, id_sexo, cpf, rg, em
 '$telefone','$cargo','$ativo')";
       
 $query = $mysqli->query($executa);
-echo"<script language='javascript' type='text/javascript'>alert('Colaborador cadastrado com sucesso!');window.location.href='colaboradores.php'</script>";
+echo"<script language='javascript' type='text/javascript'>alert('Colaborador cadastrado com sucesso!');window.location.href='../view/colaboradores.php'</script>";
 ?>

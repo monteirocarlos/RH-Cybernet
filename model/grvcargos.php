@@ -13,6 +13,6 @@ $executa = "INSERT INTO tb_cargo (cargo, setor, nivel, cbo, salario, descricao) 
       
 $query = $mysqli->query($executa);
 
-echo"<script language='javascript' type='text/javascript'>alert('Cargo cadastrado!');window.location.href='cargos.php'</script>";
+echo"<script language='javascript' type='text/javascript'>alert('Cargo cadastrado!');window.location.href='../view/cargos.php'</script>";
 
 ?>

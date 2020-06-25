@@ -1,6 +1,6 @@
-    <body>
+<body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button><!-- Navbar Search-->
+            <a class="navbar-brand" href="../index.html">Start Bootstrap</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button><!-- Navbar Search-->
             <!-- Navbar-->
             <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" >
             <ul class="navbar-nav ml-auto ml-md-0">
@@ -22,7 +22,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.php"
+                            <a class="nav-link" href="../index.php"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard</a
                             >
@@ -33,7 +33,7 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="colaboradores.php">Colaboradores</a><a class="nav-link" href="cargos.php">Cargos</a>
+                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="view/colaboradores.php">Colaboradores</a><a class="nav-link" href="view/cargos.php">Cargos</a>
                                 <a class="nav-link" href="salarios.php">Salários</a>
                                 </nav>
                             </div>
