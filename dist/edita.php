@@ -14,4 +14,7 @@ $id = $_POST["modalId"];
 
 $executa = "UPDATE tb_colaboradores SET nome='$nome', nascimento='$nascimento', endereco='$endereco', cpf='$cpf', rg='$rg', ativo='$ativo', id_sexo='$sexo', id_cargo='$cargo', telefone='$telefone', email='$email' WHERE tb_colaboradores.id_colaborador='$id'";
 $query = $mysqli->query($executa);
+
+echo"<script language='javascript' type='text/javascript'>alert('Edição realizada!');window.location.href='colaboradores.php'</script>";
+
 ?>

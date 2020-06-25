@@ -242,7 +242,6 @@
             $("#id_edt_salario").val(salario);
             $("#id_edt_descricao").val(descricao);
             }
-
             </script>
     </body>
 </html>

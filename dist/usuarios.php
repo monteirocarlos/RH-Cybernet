@@ -14,14 +14,9 @@ $telefone = ($_POST["telefone"]);
 $cargo = ($_POST["cargo"]);
 $ativo = ($_POST["ativo"]);
 
-
 $executa = "INSERT INTO tb_colaboradores (nome, nascimento, id_sexo, cpf, rg, email, endereco, telefone, id_cargo, ativo) VALUES ('$nome','$nascimento','$sexo','$cpf','$rg','$email','$endereco',
 '$telefone','$cargo','$ativo')";
       
 $query = $mysqli->query($executa);
-
 echo"<script language='javascript' type='text/javascript'>alert('Colaborador cadastrado com sucesso!');window.location.href='colaboradores.php'</script>";
-
 ?>
-
-
