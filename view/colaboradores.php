@@ -23,7 +23,7 @@ include "../model/banco.php";
             <div id="layoutSidenav_content">
                 <div class="card mb-4">
                     <div class="teste">
-                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#editarModal" >Novo</button>&nbsp 		
+                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#editarModal" >Novo colaborador</button>&nbsp 		
                     </div>
                     
                     
@@ -37,7 +37,7 @@ include "../model/banco.php";
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="usuarios.php">
+                                <form role="form" method="POST" action="../model/grava_colaboradores.php">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-6">
@@ -175,7 +175,7 @@ include "../model/banco.php";
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                <form role="form" method="POST" action="edita.php">
+                                <form role="form" method="POST" action="../model/edita_colaboradores.php">
                                     <fieldset>
                                     <div class="form-group">
 				                    <input type="hidden"  class="form-control"name="modalId" id="modalId" />
