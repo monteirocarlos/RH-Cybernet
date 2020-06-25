@@ -34,7 +34,7 @@
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="../model/grvcargos.php">
+                                <form role="form" method="POST" action="../model/grava_cargos.php">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
@@ -49,7 +49,7 @@
 					                                $result_cat_post = "SELECT * FROM tb_setores";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
 					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['id_setor'].'">'.$row_cat_post['nome'].'</option>';
+						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
 					                                }
 				                                    ?>
                                                 </select>
@@ -106,7 +106,7 @@
                                         <th>CBO</th>
                                         <th>Salário</th>
                                         <th>Descrição</th>
-                                        <th>Ações</th>                      
+                                        <th></th>                      
                                     </tr>
                                 </thead>
 
@@ -142,7 +142,7 @@
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="../model/grv_edt_cargos.php">
+                                <form role="form" method="POST" action="../model/edita_cargos.php">
                                     <fieldset>
                                     <div class="form-group">
 				                    <input type="hidden"  class="form-control"name="modalId" id="modalId" />
