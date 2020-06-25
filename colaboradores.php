@@ -85,7 +85,6 @@ include "banco.php";
                                                 <label for="exampleInputEmail1">Cargo</label>
                                                 <select name="cargo" class="form-control">
                                                     <option value="">Selecione o cargo</option>
-                                                    <option value="">Selecione o cargo</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
