@@ -35,7 +35,7 @@ include "../model/banco.php";
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="../model/grava_colaboradores.php">
+                                <form role="form" method="POST" action="../model/grava_colaboradores_teste.php">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
@@ -130,8 +130,8 @@ include "../model/banco.php";
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Nível</label>
-                                                <select name="grava_colaborador_nivel" name="grava_colaborador_nivel" class="form-control">
+                                                <label for="exampleInputEmail1">Categoria</label>
+                                                <select name="grava_colaborador_categoria" name="grava_colaborador_categoria" class="form-control">
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_categoria";
@@ -143,8 +143,8 @@ include "../model/banco.php";
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Status</label>
-                                                <select name="sexo" class="form-control">
+                                                <label for="exampleInputEmail1">Condição</label>
+                                                <select name="grava_colaborador_condicao" name="grava_colaborador_condicao" class="form-control">
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_ativo";
@@ -173,36 +173,24 @@ include "../model/banco.php";
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Nome</th>
-                                        <th>Nascimento</th>
-                                        <th>Sexo</th>
-                                        <th>CPF</th>
-                                        <th>RG</th>
-                                        <th>E-mail</th>
-                                        <th>Endereço</th>
-                                        <th>Telefone</th>
-                                        <th>Cargo</th>
-                                        <th>Status</th>
                                         <th>ID</th>
+                                        <th>Nome</th>
+                                        <th>E-mail</th>
+                                        <th>Cargo</th>
+                                        <th>Condição</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <?php 
-                                $lista_colaboradores = "SELECT * FROM tb_colaboradores";
+                                $lista_colaboradores = "SELECT * FROM tb_teste";
                                 $con = $mysqli->query($lista_colaboradores) or die ($mysqli->error);
                                 while($dados = $con->fetch_array()){ ?>
                                 <tbody>
+                                    <td><?php echo $dados['id_colaborador'];?></td>
                                     <td><?php echo $dados['nome'];?></td>
-                                    <td><?php echo $dados['nascimento'];?></td>
-                                    <td><?php echo $dados['id_sexo'];?></td>
-                                    <td><?php echo $dados['cpf'];?></td>
-                                    <td><?php echo $dados['rg'];?></td>
                                     <td><?php echo $dados['email'];?></td>
-                                    <td><?php echo $dados['endereco'];?></td>
-                                    <td><?php echo $dados['telefone'];?></td>
-                                    <td><?php echo $dados['id_cargo'];?></td>
-                                    <td><?php echo $dados['ativo'];?></td> 
-                                    <td><?php echo $dados['id_colaborador'];?></td> 
+                                    <td><?php echo $dados['cargo'];?></td>
+                                    <td><?php echo $dados['condicao'];?></td>
                                     <td>  
                                     <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#alterarModal" class="btnEditar" onclick="editar(this)"></i>
                                     </td>
@@ -223,7 +211,7 @@ include "../model/banco.php";
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="../model/grava_colaboradores.php">
+                                <form role="form" method="POST" action="../model/edita_colaboradores_teste.php">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
@@ -318,8 +306,8 @@ include "../model/banco.php";
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Nível</label>
-                                                <select name="edita_colaborador_nivel" name="edita_colaborador_nivel" class="form-control">
+                                                <label for="exampleInputEmail1">Categoria</label>
+                                                <select name="edita_colaborador_categoria" name="edita_colaborador_categoria" class="form-control">
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_categoria";
@@ -331,8 +319,8 @@ include "../model/banco.php";
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Status</label>
-                                                <select name="edita_colaborador_status" name="edita_colaborador_status" class="form-control">
+                                                <label for="exampleInputEmail1">Condição</label>
+                                                <select name="edita_colaborador_condicao" name="edita_colaborador_condicao" class="form-control">
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_ativo";
@@ -368,6 +356,7 @@ include "../model/banco.php";
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
+
 <script>
 function editar(e) {
   var linha = $(e).closest("tr");
@@ -383,7 +372,6 @@ function editar(e) {
   var ativo = linha.find("td:eq(9)").text().trim(); 
   var id = linha.find("td:eq(10)").text().trim();
 
-    
   $("#modalnome").val(nome);
   $("#modalendereco").val(endereco);
   $("#modalcpf").val(cpf);
