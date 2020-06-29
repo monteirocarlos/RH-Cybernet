@@ -10227,3 +10227,8 @@ body {
   text-align: center;
   margin-top: 120px;
 }
+
+.carregando{
+  color:#ff0000;
+  display:none;
+}
