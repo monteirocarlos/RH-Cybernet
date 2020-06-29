@@ -132,9 +132,13 @@ include "../model/banco.php";
                                                 <label for="exampleInputEmail1">Cargo</label>
                                                 <select name="category_id" id="subcategoria" class="form-control">
                                                     <option value="">Selecione</option>
-                                                    <?php 
-                             
-                                                    ?>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['cargo'].'">'.$row_cat_post['cargo'].'</option>';
+					                                }
+				                                    ?>
                                                 </select>
                                                 
                                             </div>
@@ -156,10 +160,10 @@ include "../model/banco.php";
                                                 <select name="grava_colaborador_condicao" id="grava_colaborador_condicao" class="form-control">
                                                     <option value="">Selecione</option>
                                                     <?php
-					                                $result_cat_post = "SELECT * FROM tb_ativo";
+					                                $result_cat_post = "SELECT * FROM tb_condicao";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
 					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['id_ativo'].'">'.$row_cat_post['ativo'].'</option>';
+						                            echo '<option value="'.$row_cat_post['condicao'].'">'.$row_cat_post['condicao'].'</option>';
 					                                }
 				                                    ?>
                                                 </select>
