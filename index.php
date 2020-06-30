@@ -1,5 +1,6 @@
 <?php
 session_start();
+include ("verifica_login.php");
 ?>
 
 <!DOCTYPE html>
@@ -19,14 +20,23 @@ session_start();
 			<div class="hero-body">
 				<div class="container has-text-centered">
 					<div class="column is-4 is-offset-4">
-						<div class="box">
+					<?php
+                    if(isset($_SESSION['nao_autenticado'])):
+                    ?>
+                    <div class="notification is-danger">
+                      <p>ERRO: Usuário ou senha inválidos.</p>
+                    </div>
+                    <?php
+                    endif;
+                    unset($_SESSION['nao_autenticado']);
+                    ?>
+					<div class="box">
 							<form method="POST" action="model/login.php" >
 								<div class="field">
 									<div class="control">
 										<input name="usuario" id="usuario" class="input is-large" placeholder="Seu usuário" autofocus="" required>
 									</div>
 								</div>
-	
 								<div class="field">
 									<div class="control">
 										<input name="senha" id="senha" class="input is-large" type="password" placeholder="Sua senha" required>
