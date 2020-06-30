@@ -162,7 +162,7 @@
 					                                $result_cat_post = "SELECT * FROM tb_setores";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
 					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['id_setor'].'">'.$row_cat_post['nome'].'</option>';
+						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
 					                                }
 				                                    ?>
                                                 </select>

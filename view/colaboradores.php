@@ -35,7 +35,7 @@ include "../model/banco.php";
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="../model/grava_colaboradores_teste.php">
+                                <form role="form" method="POST" action="../model/grava_colaboradores.php">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
@@ -130,7 +130,7 @@ include "../model/banco.php";
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Cargo</label>
-                                                <select name="category_id" id="subcategoria" class="form-control">
+                                                <select name="grava_colaborador_cargo" id="grava_colaborador_cargo" class="form-control">
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo";
@@ -195,7 +195,7 @@ include "../model/banco.php";
                                     </tr>
                                 </thead>
                                 <?php 
-                                $lista_colaboradores = "SELECT * FROM tb_teste";
+                                $lista_colaboradores = "SELECT * FROM tb_colaboradores";
                                 $con = $mysqli->query($lista_colaboradores) or die ($mysqli->error);
                                 while($dados = $con->fetch_array()){ ?>
                                 <tbody>
