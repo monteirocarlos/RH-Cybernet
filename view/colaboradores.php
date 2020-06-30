@@ -44,21 +44,21 @@ include "../model/banco.php";
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">CPF</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_cpf" id="grava_colaborador_cpf" placeholder="Insira o CPF">
+                                                <input type="text" class="form-control " name="grava_colaborador_cpf" id="grava_colaborador_cpf" placeholder="Insira o CPF" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)">
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">RG</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_rg" id="grava_colaborador_rg" placeholder="Insira o RG">
+                                                <input type="text" class="form-control" name="grava_colaborador_rg" id="grava_colaborador_rg" maxlength="12" OnKeyPress="formatar('##.###.###-#', this)" placeholder="Insira o RG">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nascimento</label>
-                                                <input type="date" class="form-control" name="grava_colaborador_nascimento" id="grava_colaborador_nascimento">
+                                                <input type="text" class="form-control" name="grava_colaborador_nascimento" id="grava_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Admissão</label>
-                                                <input type="date" class="form-control" name="grava_colaborador_admissao" id="grava_colaborador_admissao">
+                                                <input type="text" class="form-control" name="grava_colaborador_admissao" id="grava_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Sexo</label>
@@ -79,22 +79,22 @@ include "../model/banco.php";
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Telefone</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_telefone"id="grava_colaborador_telefone" maxlength="15" placeholder="Insira o número residencial" />
+                                                <input type="text" class="form-control" name="grava_colaborador_telefone"id="grava_colaborador_telefone" maxlength="12" OnKeyPress="formatar('## ####-####', this)" placeholder="Número residencial" />
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Celular</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_celular"id="grava_colaborador_celular" maxlength="15" placeholder="Insira o celular" />
+                                                <input type="text" class="form-control" name="grava_colaborador_celular"id="grava_colaborador_celular" maxlength="13" OnKeyPress="formatar('## #####-####', this)" placeholder="Insira o celular" />
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">E-mail</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_email"id="grava_colaborador_email" maxlength="15" placeholder="Insira o e-mail" />
+                                                <input type="email" class="form-control" name="grava_colaborador_email"id="grava_colaborador_email" maxlength="15" placeholder="Insira o e-mail" />
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">CEP</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_cep"id="grava_colaborador_cep" maxlength="15" placeholder="CEP" />
+                                                <input type="text" class="form-control" name="grava_colaborador_cep"id="grava_colaborador_cep"  placeholder="CEP" maxlength="9" OnKeyPress="formatar('#####-###', this)" />
                                             </div>
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Rua</label>
@@ -233,21 +233,21 @@ include "../model/banco.php";
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">CPF</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_cpf" id="edita_colaborador_cpf" placeholder="Insira o CPF">
+                                                <input type="text" class="form-control" name="edita_colaborador_cpf" id="edita_colaborador_cpf" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)"  placeholder="Insira o CPF">
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">RG</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_rg" id="edita_colaborador_rg" placeholder="Insira o RG">
+                                                <input type="text" class="form-control" name="edita_colaborador_rg" id="edita_colaborador_rg" maxlength="12" OnKeyPress="formatar('##.###.###-#', this)" placeholder="Insira o RG">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Nascimento</label>
-                                                <input type="date" class="form-control" name="edita_colaborador_nascimento" id="edita_colaborador_nascimento">
+                                                <input type="date" class="form-control" name="edita_colaborador_nascimento" id="edita_colaborador_nascimento" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Admissão</label>
-                                                <input type="date" class="form-control" name="edita_colaborador_admissao" id="edita_colaborador_admissao">
+                                                <input type="date" class="form-control" name="edita_colaborador_admissao" id="edita_colaborador_admissao" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
                                             </div>
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Sexo</label>
@@ -352,23 +352,27 @@ include "../model/banco.php";
                         </div>
                         </div>
 
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2019</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                        <?php include "footer.php" ?>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
+
+    <script>
+
+    function formatar(mascara, documento){
+        var i = documento.value.length;
+        var saida = mascara.substring(0,1);
+        var texto = mascara.substring(i)
+        
+        if (texto.substring(0,1) != saida){
+                    documento.value += texto.substring(0,1);
+        }
+        
+        }
+    </script>
+
 
 <script>
 function editar(e) {
