@@ -21,9 +21,9 @@ $cargo = ($_POST["grava_colaborador_cargo"]);
 $categoria = ($_POST["grava_colaborador_categoria"]);
 $condicao = ($_POST["grava_colaborador_condicao"]);
 
-$executa = "INSERT INTO tb_colaboradores (nome, cpf, rg, nascimento, admissao, sexo, telefone, celular, email, cep, rua, bairro, numero, cidade, setor, cargo, categoria, condicao) VALUES ('$nome','$cpf','$rg','$nascimento','$admissao','$sexo', '$telefone', '$celular', '$email',
-'$cep','$rua','$bairro','$numero','$cidade','$setor','$cargo','$categoria', '$condicao')";
+$executa = "INSERT INTO tb_colaboradores (nome, cpf, rg, nascimento, admissao, sexo) VALUES ('$nome', '$cpf', '$rg', '$nascimento', '$admissao', '$sexo')";
       
 $query = $mysqli->query($executa);
 echo"<script language='javascript' type='text/javascript'>alert('Cadastrado!');window.location.href='../view/colaboradores.php'</script>";
+
 ?>

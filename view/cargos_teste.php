@@ -100,14 +100,20 @@
                             <table class="table table-bordered"  id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th style="display:none;">ID</th>
-                                        <th>Cargo</th>
+                                        <th style="visibility:collapse;">ID</th>
+                                        <th style="visibility:collapse;">ID</th>
+                                        <th style="visibility:collapse;">ID</th>
+                                        <th style="visibility:collapse;">ID</th>
+                                        <th style="visibility:collapse;">ID</th>
+                                        <th style="visibility:collapse;">ID</th>
+                                        <th style="visibility:collapse;">Cargo</th>
                                         <th>Setor</th>
                                         <th>Nível</th>
-                                        <th>CBO</th>
-                                        <th>Salário</th>
-                                        <th>Descrição</th>
-                                        <th>Ações</th>                      
+                                        <th>Ações</th> 
+                                        <th style="visibility:collapse;">CBO</th>
+                                        <th style="visibility:collapse;">Salário</th>
+                                        <th style="visibility:collapse;">Descrição</th>
+                                                             
                                     </tr>
                                 </thead>
 
@@ -117,19 +123,25 @@
                                 while($dados = $con->fetch_array()){ ?>
                                 
                                 <tbody>
-                                    <td style="display:none;"><?php echo $dados['id_cargo'];?></td>
-                                    <td><?php echo $dados['cargo'];?></td>
+                                <td style="visibility:collapse;">ID</td>
+                                <td style="visibility:collapse;">ID</td>
+                                <td style="visibility:collapse;">ID</td>
+                                <td style="visibility:collapse;">ID</td>
+                                <td style="visibility:collapse;"></td>    
+                                <td style="visibility:collapse;"><?php echo $dados['id_cargo'];?></td>
+                                    <td style="visibility:collapse;"><?php echo $dados['cargo'];?></td>
                                     <td><?php echo $dados['setor'];?></td>
                                     <td><?php echo $dados['nivel'];?></td>
-                                    <td><?php echo $dados['cbo'];?></td>
-                                    <td><?php echo $dados['salario'];?></td>
-                                    <td><?php echo $dados['descricao'];?></td>
                                     <td>  
                                     <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#edtsetorModal" class="btnEditar" onclick="editar(this)"></i>
                                     </td>
+                                    <td style="visibility:collapse;"><?php echo $dados['cbo'];?></td>
+                                    <td style="visibility:collapse;"><?php echo $dados['salario'];?></td>
+                                    <td style="visibility:collapse;"><?php echo $dados['descricao'];?></td>
                                     <?php } ?>
                             </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>
