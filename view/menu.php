@@ -31,6 +31,7 @@ include ("../model/verifica_login.php");
                                 Dashboard</a
                             >
                             <div class="sb-sidenav-menu-heading">RECURSOS</div>
+                            
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Gestão de pessoas
@@ -40,24 +41,16 @@ include ("../model/verifica_login.php");
                                 <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="colaboradores.php">Colaboradores</a><a class="nav-link" href="cargos.php">Cargos</a>
                                 </nav>
                             </div>
+                            
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"
-                                ><div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                             ><div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Administração
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth"
-                                        >Gerenciar usuários
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                                    ></a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="register.html">Registrar usuário</a><a class="nav-link" href="password.html">Alterar senha</a></nav>
-                                    </div>
-                                </nav>
+                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="usuarios.php">Registrar usuário</a><a class="nav-link" href="password.html">Alterar senha</a></nav>
+                                    </div>   
                             </div>
-                           
-                        </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small"><h4>Boas-vindas:</h4></div>

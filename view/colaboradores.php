@@ -206,6 +206,7 @@ include "../model/banco.php";
                                     <td><?php echo $dados['condicao'];?></td>
                                     <td>  
                                     <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#alterarModal" class="btnEditar" onclick="editar(this)"></i>
+                                    <i class="fas fa-trash ml-1" title="Editar" data-toggle="modal" data-target="#alterarModal" class="btnEditar" onclick="editar(this)"></i>
                                     </td>
                                     <?php } ?>
                             </tbody>                            

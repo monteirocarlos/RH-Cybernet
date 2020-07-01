@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Cargos</title>
+        <title>Cadastro de usuários</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -33,19 +33,18 @@
                                     </button>
                                 </div>
                             <div class="modal-body">
-                            <form method="POST" action="core/adicionarUsuario.php">
+                            <form method="POST" action="../model/grava_usuarios.php">
 				<div class="form-group">
 					<label for="nome">Nome</label>
-					<input type="text" class="form-control" name="cad_nome" aria-describedby="nomeHelp" placeholder="Seu nome" />
-					<small id="nomeHelp" class="form-text text-muted">Digite seu nome completo</small>
+					<input type="text" class="form-control" name="grava_usuario_nome"  id="grava_usuario_nome" aria-describedby="nomeHelp" placeholder="Seu nome completo" />
 				</div>
 				<div class="form-group">
 					<label for="usuario">Usuário</label>
-					<input type="text" class="form-control" name="cad_usuario" placeholder="Seu usuário"/>
+					<input type="text" class="form-control"  name="grava_usuario_usuario" id="grava_usuario_usuario" placeholder="Seu usuário"/>
 				</div>
 				<div class="form-group">
 					<label for="senha">Senha</label>
-					<input type="password" class="form-control" name="cad_senha" placeholder="Sua senha"/>
+					<input type="password" class="form-control" name="grava_usuario_senha" id="grava_usuario_senha" placeholder="Sua senha"/>
 				</div>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
 				<button type="submit" class="btn btn-primary">Adicionar</button>
@@ -57,7 +56,7 @@
                         </div>
                         </div>
                         </div>
-                    <div class="card-header"></i>Cargos</div>
+                    <div class="card-header"></i>Usuários</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -71,16 +70,18 @@
                                 </thead>
 
                                 <?php 
-                                $lista_cargos = "SELECT * FROM tb_cargo";
-                                $con = $mysqli->query($lista_cargos) or die ($mysqli->error);
+                                $lista_usuarios = "SELECT * FROM tb_usuarios";
+                                $con = $mysqli->query($lista_usuarios) or die ($mysqli->error);
                                 while($dados = $con->fetch_array()){ ?>
                                 
                                 <tbody>
-                                    <td><?php echo $dados['id_cargo'];?></td>
-                                    <td><?php echo $dados['cargo'];?></td>
-                                    <td><?php echo $dados['setor'];?></td>
+                                    <td><?php echo $dados['id_usuario'];?></td>
+                                    <td><?php echo $dados['nome'];?></td>
+                                    <td><?php echo $dados['usuario'];?></td>
                                     <td>  
                                     <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#edtsetorModal" class="btnEditar" onclick="editar(this)"></i>
+                                    <button type="submit" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o usuário: <?php echo $dados['nome'];?> ?'))
+		                            location.href='../model/delete_usuarios.php?id_usuario=<?php echo $dados['id_usuario']; ?>';" ></button>
                                     </td>
                                     <?php } ?>
                             </tbody>
