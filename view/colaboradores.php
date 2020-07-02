@@ -376,6 +376,15 @@ function editar(e) {
   var nascimento = linha.find("td:eq(9)").text().trim();
   var admissao = linha.find("td:eq(10)").text().trim();
   var sexo = linha.find("td:eq(11)").text().trim();
+  var telefone = linha.find("td:eq(12)").text().trim();
+  var celular = linha.find("td:eq(2)").text().trim();
+  var email = linha.find("td:eq(3)").text().trim();
+  var condicao = linha.find("td:eq(5)").text().trim();
+  var cep = linha.find("td:eq(13)").text().trim();
+  var rua = linha.find("td:eq(14)").text().trim();
+  var bairro = linha.find("td:eq(15)").text().trim();
+  var numero = linha.find("td:eq(16)").text().trim();
+  var cidade = linha.find("td:eq(17)").text().trim();
   
   $("#edita_colaborador_nome").val(nome);
   $("#edita_colaborador_cpf").val(cpf);
@@ -383,8 +392,17 @@ function editar(e) {
   $("#edita_colaborador_nascimento").val(nascimento);
   $("#edita_colaborador_admissao").val(admissao);
   $("#edita_colaborador_sexo").val(sexo);
-
+  $("#edita_colaborador_telefone").val(telefone);
+  $("#edita_colaborador_celular").val(celular);
+  $("#edita_colaborador_email").val(email);
+  $("#edita_colaborador_condicao").val(condicao);
+  $("#edita_colaborador_cep").val(cep);
+  $("#edita_colaborador_rua").val(rua);
+  $("#edita_colaborador_bairro").val(bairro);
+  $("#edita_colaborador_numero").val(numero);
+  $("#edita_colaborador_cidade").val(cidade);
 }
 </script>
 </body>
 </html>
+
