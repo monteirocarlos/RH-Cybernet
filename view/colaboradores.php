@@ -225,6 +225,9 @@ include "../model/banco.php";
                                     <td style="display:none;"><?php echo $dados['bairro'];?></td>
                                     <td style="display:none;"><?php echo $dados['numero'];?></td>
                                     <td style="display:none;"><?php echo $dados['cidade'];?></td>
+                                    <td style="display:none;"><?php echo $dados['setor'];?></td>
+                                    <td style="display:none;"><?php echo $dados['categoria'];?></td>
+                                    
                                     <?php } ?>
                             </tbody>                            
                             </table>
@@ -347,6 +350,159 @@ include "../model/banco.php";
                         </div>
                         </div>
 
+
+                        <div class="modal fade" id="view_colaboradores_modal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editarModalLabel">Vizualizar dados</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <div class="modal-body">
+                                <form role="form">
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Nome completo</label>
+                                                <input type="text" class="form-control" name="view_colaborador_nome" id="view_colaborador_nome" placeholder="Insira seu nome" disabled="">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">CPF</label>
+                                                <input type="text" class="form-control " name="view_colaborador_cpf" id="view_colaborador_cpf" placeholder="Insira o CPF" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" disabled="">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">RG</label>
+                                                <input type="text" class="form-control" name="view_colaborador_rg" id="view_colaborador_rg" maxlength="12" OnKeyPress="formatar('##.###.###-#', this)" placeholder="Insira o RG" disabled="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Nascimento</label>
+                                                <input type="text" class="form-control" name="view_colaborador_nascimento" id="view_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" disabled="">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Admissão</label>
+                                                <input type="text" class="form-control" name="view_colaborador_admissao" id="view_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" disabled="">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Sexo</label>
+                                                <select name="view_colaborador_sexo" id="view_colaborador_sexo" class="form-control" disabled="">
+                                                    <option value="">Selecione</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_sexo ORDER BY sexo";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['sexo'].'">'.$row_cat_post['sexo'].'</option>';
+					                                }
+				                                    ?>
+                                                </select>
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Telefone</label>
+                                                <input type="text" class="form-control" name="view_colaborador_telefone"id="view_colaborador_telefone" maxlength="12" OnKeyPress="formatar('## ####-####', this)" placeholder="Número residencial" disabled="" />
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Celular</label>
+                                                <input type="text" class="form-control" name="view_colaborador_celular"id="view_colaborador_celular" maxlength="13" OnKeyPress="formatar('## #####-####', this)" placeholder="Insira o celular" disabled="" />
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">E-mail</label>
+                                                <input type="email" class="form-control" name="view_colaborador_email"id="view_colaborador_email" maxlength="15" placeholder="Insira o e-mail" disabled=""/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-lg-2">
+                                                <label for="exampleInputEmail1">CEP</label>
+                                                <input type="text" class="form-control" name="view_colaborador_cep"id="view_colaborador_cep"  placeholder="CEP" maxlength="9" OnKeyPress="formatar('#####-###', this)" disabled="" />
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <label for="exampleInputEmail1">Rua</label>
+                                                <input type="text" class="form-control" name="view_colaborador_rua"id="view_colaborador_rua" maxlength="15" placeholder="Rua" disabled="" />
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Bairro</label>
+                                                <input type="text" class="form-control" name="view_colaborador_bairro"id="view_colaborador_bairro" maxlength="15" placeholder="Bairro" disabled="" />
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <label for="exampleInputEmail1">Nº</label>
+                                                <input type="text" class="form-control" name="view_colaborador_numero"id="view_colaborador_numero" maxlength="4" placeholder="Número" disabled="" />
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Cidade</label>
+                                                <input type="text" class="form-control" name="view_colaborador_cidade"id="view_colaborador_cidade" maxlength="15" placeholder="Cidade" disabled="" />
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                        <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Setor</label>
+                                                <select name="view_colaborador_setor" id="view_colaborador_setor" class="form-control" disabled="">
+                                                    <option value="">Selecione</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_setores";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
+					                                }
+				                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Cargo</label>
+                                                <select name="view_colaborador_cargo" id="view_colaborador_cargo" class="form-control" disabled="">
+                                                    <option value="">Selecione</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['cargo'].'">'.$row_cat_post['cargo'].'</option>';
+					                                }
+				                                    ?>
+                                                </select>
+                                                
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Categoria</label>
+                                                <select name="view_colaborador_categoria" id="view_colaborador_categoria" class="form-control" disabled="">
+                                                    <option value="">Selecione</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_categoria";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['id_categoria'].'">'.$row_cat_post['categoria'].'</option>';
+					                                }
+				                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Condição</label>
+                                                <select name="view_colaborador_condicao" id="view_colaborador_condicao" class="form-control" disabled="">
+                                                    <option value="">Selecione</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_condicao";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['condicao'].'">'.$row_cat_post['condicao'].'</option>';
+					                                }
+				                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>		
+                        </div>
+                        </div>
+                        </div>
+                        
+
                         <?php include "footer.php" ?>
             </div>
         </div>
@@ -386,6 +542,11 @@ function editar(e) {
   var bairro = linha.find("td:eq(15)").text().trim();
   var numero = linha.find("td:eq(16)").text().trim();
   var cidade = linha.find("td:eq(17)").text().trim();
+  var setor = linha.find("td:eq(18)").text().trim();
+  var cargo = linha.find("td:eq(4)").text().trim();
+  var categoria = linha.find("td:eq(19)").text().trim();
+  
+  
   
   $("#edita_colaborador_nome").val(nome);
   $("#edita_colaborador_cpf").val(cpf);
@@ -402,6 +563,26 @@ function editar(e) {
   $("#edita_colaborador_bairro").val(bairro);
   $("#edita_colaborador_numero").val(numero);
   $("#edita_colaborador_cidade").val(cidade);
+  
+  $("#view_colaborador_nome").val(nome);
+  $("#view_colaborador_cpf").val(cpf);
+  $("#view_colaborador_rg").val(rg);
+  $("#view_colaborador_nascimento").val(nascimento);
+  $("#view_colaborador_admissao").val(admissao);
+  $("#view_colaborador_sexo").val(sexo);
+  $("#view_colaborador_telefone").val(telefone);
+  $("#view_colaborador_celular").val(celular);
+  $("#view_colaborador_email").val(email);
+  $("#view_colaborador_condicao").val(condicao);
+  $("#view_colaborador_cep").val(cep);
+  $("#view_colaborador_rua").val(rua);
+  $("#view_colaborador_bairro").val(bairro);
+  $("#view_colaborador_numero").val(numero);
+  $("#view_colaborador_cidade").val(cidade);
+  $("#view_colaborador_setor").val(setor);
+  $("#view_colaborador_cargo").val(cargo);
+  $("#view_colaborador_categoria").val(categoria);
+
 }
 </script>
 
