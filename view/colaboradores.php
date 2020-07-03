@@ -68,7 +68,7 @@ include "../model/banco.php";
 					                                $result_cat_post = "SELECT * FROM tb_sexo ORDER BY sexo";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
 					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['id_sexo'].'">'.$row_cat_post['sexo'].'</option>';
+						                            echo '<option value="'.$row_cat_post['sexo'].'">'.$row_cat_post['sexo'].'</option>';
 					                                }
 				                                    ?>
                                                 </select>
@@ -117,13 +117,13 @@ include "../model/banco.php";
                                         <div class="row">
                                         <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Setor</label>
-                                                <select name="grava_colaborador_setor" id="grava_colaborador_setor" class="form-control" onchange="$.subcategoria(this.value);">
+                                                <select name="grava_colaborador_setor" id="grava_colaborador_setor" class="form-control">
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_setores";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
 					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['id_setores'].'">'.$row_cat_post['nome'].'</option>';
+						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
 					                                }
 				                                    ?>
                                                 </select>
@@ -180,6 +180,7 @@ include "../model/banco.php";
                         </div>
                         </div>
                         </div>
+
                     <div class="card-header"></i>Colaboradores</div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -209,9 +210,9 @@ include "../model/banco.php";
                                     <td><?php echo $dados['condicao'];?></td>
                                     <td>  
                                     <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#edita_colaboradores_modal" class="btnEditar" onclick="editar(this)"></i>
-                                    
-                                    <i class="fas fa-eye ml-1" title="Editar" data-toggle="modal" data-target="#alterarModal" class="btnEditar" onclick="editar(this)"></i>
-                                    <i class="fas fa-trash ml-1" title="Editar" data-toggle="modal" data-target="#alterarModal" class="btnEditar" onclick="editar(this)"></i>
+                                    <i class="fas fa-eye ml-1" title="Visualizar" data-toggle="modal" data-target="#view_colaboradores_modal" class="btnEditar" onclick="editar(this)"></i>
+                                    <button type="submit" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o usuário: <?php echo $dados['nome'];?> ?'))
+		                            location.href='../model/delete_colaboradores.php?id_colaborador=<?php echo $dados['id_colaborador']; ?>';" ></button>
                                     </td>
                                     <td style="display:none;"><?php echo $dados['cpf'];?></td>
                                     <td style="display:none;"><?php echo $dados['rg'];?></td>
@@ -403,6 +404,7 @@ function editar(e) {
   $("#edita_colaborador_cidade").val(cidade);
 }
 </script>
+
+
 </body>
 </html>
-

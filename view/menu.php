@@ -33,7 +33,7 @@ include ("../model/verifica_login.php");
                             <div class="sb-sidenav-menu-heading">RECURSOS</div>
                             
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
-                                ><div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                ><div class="sb-nav-link-icon"><i class="fas fa-address-card"	></i></div>
                                 Gestão de pessoas
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>
@@ -43,7 +43,7 @@ include ("../model/verifica_login.php");
                             </div>
                             
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"
-                             ><div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                             ><div class="sb-nav-link-icon"><i class="fas  fa-users"></i></div>
                                 Administração
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>

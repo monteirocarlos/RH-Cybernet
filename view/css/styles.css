@@ -10228,7 +10228,8 @@ body {
   margin-top: 120px;
 }
 
-.carregando{
-  color:#ff0000;
-  display:none;
+h5 .boasvindas  {
+font-size: 36px;
+  text-transform: uppercase;
 }
+
