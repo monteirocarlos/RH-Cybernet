@@ -245,9 +245,12 @@ include "../model/banco.php";
                                     </button>
                                 </div>
                             <div class="modal-body">
-                            <form role="form" method="POST" action="../model/grava_colaboradores.php">
+                            <form role="form" method="POST" action="../model/edita_colaboradores.php">
                                     <fieldset>
                                         <div class="row">
+
+                                        <input type="hidden"  class="form-control"name="modalId" id="modalId" />
+
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nome completo</label>
                                                 <input type="text" class="form-control" name="edita_colaborador_nome" id="edita_colaborador_nome">
@@ -527,6 +530,7 @@ include "../model/banco.php";
 
 function editar(e) {
   var linha = $(e).closest("tr");
+  var id = linha.find("td:eq(0)").text().trim();
   var nome = linha.find("td:eq(1)").text().trim();
   var cpf = linha.find("td:eq(7)").text().trim();
   var rg = linha.find("td:eq(8)").text().trim();
@@ -547,7 +551,7 @@ function editar(e) {
   var categoria = linha.find("td:eq(19)").text().trim();
   
   
-  
+  $("#modalId").val(id);
   $("#edita_colaborador_nome").val(nome);
   $("#edita_colaborador_cpf").val(cpf);
   $("#edita_colaborador_rg").val(rg);

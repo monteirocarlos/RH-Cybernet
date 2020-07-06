@@ -97,7 +97,7 @@
                     <div class="card-header"></i>Cargos</div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered"  id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered cores"  id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th style="display:none;">ID</th>
@@ -116,7 +116,7 @@
                                 $con = $mysqli->query($lista_cargos) or die ($mysqli->error);
                                 while($dados = $con->fetch_array()){ ?>
                                 
-                                <tbody>
+                                <tbody class="cores">
                                     <td style="display:none;"><?php echo $dados['id_cargo'];?></td>
                                     <td><?php echo $dados['cargo'];?></td>
                                     <td><?php echo $dados['setor'];?></td>
