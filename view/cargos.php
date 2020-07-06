@@ -21,9 +21,8 @@
             <div id="layoutSidenav_content">
                 <div class="card mb-4">
                     <div class="teste">
-                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#setorModal" >Novo cargo</button>&nbsp 
-                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#setorModal" >Novo setor</button>&nbsp 		
-		</div>
+                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#setorModal" >Novo cargo</button>&nbsp 		
+		               </div>
                     
                     <div class="modal fade" id="setorModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -84,11 +83,12 @@
                                                 <label for="exampleInputEmail1">Descrição</label>
                                                 <textarea type="textarea" class="form-control" name="id_descricao" id="id_descricao" placeholder="Insira a descrição de cargo"></textarea>
                                             </div>
-                                        <div class="box-actions">
-                                            <button type="submit" class="btn btn-primary">Salvar</button>
-                                        </div>
+                                        </fieldset> 
+
+                                        <div class="teste">
+                                            <button type="submit" class="btn btn-primary">Cadastrar cargo</button>
+                                            </div>
                                  
-                                    </fieldset>
                                 </form>
                             </div>		
                         </div>
@@ -105,8 +105,8 @@
                                         <th>Setor</th>
                                         <th>Nível</th>
                                         <th>CBO</th>
-                                        <th>Salário</th>
-                                        <th>Descrição</th>
+                                        <th style="display:none;">Salário</th>
+                                        <th style="display:none;">Descrição</th>
                                         <th>Ações</th>                      
                                     </tr>
                                 </thead>
@@ -122,10 +122,13 @@
                                     <td><?php echo $dados['setor'];?></td>
                                     <td><?php echo $dados['nivel'];?></td>
                                     <td><?php echo $dados['cbo'];?></td>
-                                    <td><?php echo $dados['salario'];?></td>
-                                    <td><?php echo $dados['descricao'];?></td>
+                                    <td style="display:none;"><?php echo $dados['salario'];?></td>
+                                    <td style="display:none;"><?php echo $dados['descricao'];?></td>
                                     <td>  
+                                    <i class="fas fa-eye ml-1" title="Editar" data-toggle="modal" data-target="#view_cargo_modal" class="btnEditar" onclick="editar(this)"></i>
                                     <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#edtsetorModal" class="btnEditar" onclick="editar(this)"></i>
+                                    <button type="submit" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o cargo: <?php echo $dados['cargo'];?> ?'))
+		                            location.href='../model/delete_cargos.php?id_cargo=<?php echo $dados['id_cargo']; ?>';" ></button>
                                     </td>
                                     <?php } ?>
                             </tbody>
@@ -196,16 +199,86 @@
                                                 <label for="exampleInputEmail1">Descrição</label>
                                                 <textarea type="textarea" class="form-control" name="id_edt_descricao" id="id_edt_descricao"></textarea>
                                             </div>
-                                        <div class="box-actions">
-                                            <button type="submit" class="btn btn-primary">Salvar</button>
-                                        </div>
-                                 
+                                    </fieldset>
+
+                                            <div class="box-actions teste">
+                                            <button type="submit" class="btn btn-primary">Editar cargo</button>
+                                            </div>
+                                </form>
+                            </div>		
+                        </div>
+                        </div>
+                        </div>
+
+
+                         <div class="modal fade" id="view_cargo_modal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editarModalLabel">Vizualizar cargos</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <div class="modal-body">
+                                <form role="form">
+                                    <fieldset>
+                                    <div class="form-group">
+				                    <input type="hidden"  class="form-control"name="view_id" id="view_id" />
+				                    </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Cargo</label>
+                                                <input type="text" class="form-control" name="view_cargo" id="view_cargo" placeholder="Insira o cargo" disabled="">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Setor</label>
+                                                <select name="view_setor" id="view_setor" class="form-control" disabled="">
+                                                    <option value="">Selecionar</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_setores";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
+					                                }
+				                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Nível</label>
+                                                <select name="view_nivel" id="view_nivel" class="form-control" disabled="">
+                                                    <option value="">Selecionar</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_categoria";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['id_categoria'].'">'.$row_cat_post['categoria'].'</option>';
+					                                }
+				                                    ?>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">CBO</label>
+                                                <input type="text" class="form-control" name="view_cbo" id="view_cbo" disabled="">
+                                            </div>
+
+                                            
+                                            <div class="form-group col-lg-6">
+                                                <label for="exampleInputEmail1">Salário</label>
+                                                <input type="text" class="form-control" name="view_salario" id="view_salario" disabled="">
+                                            </div>
+
+                                            <div class="form-group col-lg-12">
+                                                <label for="exampleInputEmail1">Descrição</label>
+                                                <textarea type="textarea" class="form-control" name="view_descricao" id="view_descricao" disabled=""></textarea>
+                                            </div>
                                     </fieldset>
                                 </form>
                             </div>		
                         </div>
                         </div>
-                        </div>                    
+                        </div>                        
 
                         <?php include "footer.php" ?>
             </div>
@@ -232,6 +305,14 @@
             $("#id_edt_cbo").val(cbo);
             $("#id_edt_salario").val(salario);
             $("#id_edt_descricao").val(descricao);
+               
+            $("#view_cargo").val(cargo);
+            $("#view_setor").val(setor);
+            $("#view_nivel").val(nivel);
+            $("#view_cbo").val(cbo);
+            $("#view_salario").val(salario);
+            $("#view_descricao").val(descricao);
+
             }
             </script>
     </body>

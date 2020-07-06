@@ -21,9 +21,9 @@
             <div id="layoutSidenav_content">
                 <div class="card mb-4">
                     <div class="teste">
-                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#setorModal" >Novo usuário</button>&nbsp</div>
+                        <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#grava_usuarios_modal" >Novo usuário</button>&nbsp</div>
                     
-                    <div class="modal fade" id="setorModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="grava_usuarios_modal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -46,7 +46,6 @@
 					<label for="senha">Senha</label>
 					<input type="password" class="form-control" name="grava_usuario_senha" id="grava_usuario_senha" placeholder="Sua senha"/>
 				</div>
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
 				<button type="submit" class="btn btn-primary">Adicionar</button>
 				</form>
                                  
@@ -62,10 +61,10 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th style="display:none;">ID</th>
                                         <th>Nome</th>
                                         <th>Usuário</th>
-                                        <th></th>                      
+                                        <th>Ações</th>                      
                                     </tr>
                                 </thead>
 
@@ -75,11 +74,11 @@
                                 while($dados = $con->fetch_array()){ ?>
                                 
                                 <tbody>
-                                    <td><?php echo $dados['id_usuario'];?></td>
+                                    <td style="display:none;"><?php echo $dados['id_usuario'];?></td>
                                     <td><?php echo $dados['nome'];?></td>
                                     <td><?php echo $dados['usuario'];?></td>
                                     <td>  
-                                    <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#edtsetorModal" class="btnEditar" onclick="editar(this)"></i>
+                                    <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#edita_usuarios_modal" class="btnEditar" onclick="editar(this)"></i>
                                     <button type="submit" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o usuário: <?php echo $dados['nome'];?> ?'))
 		                            location.href='../model/delete_usuarios.php?id_usuario=<?php echo $dados['id_usuario']; ?>';" ></button>
                                     </td>
@@ -90,78 +89,39 @@
                     </div>
                 </div>
 
-                <div class="modal fade" id="edtsetorModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+                 <div class="modal fade" id="edita_usuarios_modal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="editarModalLabel">Editar cargo</h5>
+                                    <h5 class="modal-title" id="editarModalLabel">Editar usuário</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="../model/edita_cargos.php">
-                                    <fieldset>
-                                    <div class="form-group">
-				                    <input type="hidden"  class="form-control"name="modalId" id="modalId" />
-				                    </div>
-                                        <div class="row">
-                                            <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Cargo</label>
-                                                <input type="text" class="form-control" name="id_edt_cargo" id="id_edt_cargo" placeholder="Insira o cargo">
-                                            </div>
-                                            <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Setor</label>
-                                                <select name="id_edt_setor" id="id_edt_setor" class="form-control">
-                                                    <option value="">Selecionar</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_setores";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Nível</label>
-                                                <select name="id_edt_nivel" id="id_edt_nivel" class="form-control">
-                                                    <option value="">Selecionar</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_categoria";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['id_categoria'].'">'.$row_cat_post['categoria'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group col-lg-6">
-                                                <label for="exampleInputEmail1">CBO</label>
-                                                <input type="text" class="form-control" name="id_edt_cbo" id="id_edt_cbo">
-                                            </div>
-
-                                            
-                                            <div class="form-group col-lg-6">
-                                                <label for="exampleInputEmail1">Salário</label>
-                                                <input type="text" class="form-control" name="id_edt_salario" id="id_edt_salario">
-                                            </div>
-
-                                            <div class="form-group col-lg-12">
-                                                <label for="exampleInputEmail1">Descrição</label>
-                                                <textarea type="textarea" class="form-control" name="id_edt_descricao" id="id_edt_descricao"></textarea>
-                                            </div>
-                                        <div class="box-actions">
-                                            <button type="submit" class="btn btn-primary">Salvar</button>
-                                        </div>
+                            <form method="POST" action="../model/edita_usuarios.php">
+				<div class="form-group">
+					<label for="nome">Nome</label>
+					<input type="text" class="form-control" name="edita_usuario_nome"  id="edita_usuario_nome" aria-describedby="nomeHelp" placeholder="Seu nome completo" />
+				</div>
+				<div class="form-group">
+					<label for="usuario">Usuário</label>
+					<input type="text" class="form-control"  name="edita_usuario_usuario" id="edita_usuario_usuario" placeholder="Seu usuário"/>
+				</div>
+				<div class="form-group">
+					<label for="senha">Senha</label>
+					<input type="password" class="form-control" name="edita_usuario_senha" id="edita_usuario_senha" placeholder="Sua senha"/>
+				</div>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				<button type="submit" class="btn btn-primary">Adicionar</button>
+				</form>
                                  
                                     </fieldset>
                                 </form>
                             </div>		
                         </div>
                         </div>
-                        </div>                    
+                        </div>                 
 
                         <?php include "footer.php" ?>
             </div>

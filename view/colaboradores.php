@@ -209,8 +209,8 @@ include "../model/banco.php";
                                     <td><?php echo $dados['cargo'];?></td>
                                     <td><?php echo $dados['condicao'];?></td>
                                     <td>  
-                                    <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#edita_colaboradores_modal" class="btnEditar" onclick="editar(this)"></i>
                                     <i class="fas fa-eye ml-1" title="Visualizar" data-toggle="modal" data-target="#view_colaboradores_modal" class="btnEditar" onclick="editar(this)"></i>
+                                    <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#edita_colaboradores_modal" class="btnEditar" onclick="editar(this)"></i>
                                     <button type="submit" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o usuário: <?php echo $dados['nome'];?> ?'))
 		                            location.href='../model/delete_colaboradores.php?id_colaborador=<?php echo $dados['id_colaborador']; ?>';" ></button>
                                     </td>
@@ -355,7 +355,7 @@ include "../model/banco.php";
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="editarModalLabel">Vizualizar dados</h5>
+                                    <h5 class="modal-title" id="editarModalLabel">Visualizar dados</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
