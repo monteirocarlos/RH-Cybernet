@@ -25,5 +25,4 @@ $executa = "UPDATE tb_colaboradores SET nome='$nome', cpf='$cpf', rg='$rg', nasc
 $query = $mysqli->query($executa);
 
 echo"<script language='javascript' type='text/javascript'>alert('Edição realizada!');window.location.href='../view/colaboradores.php'</script>";
-
 ?>

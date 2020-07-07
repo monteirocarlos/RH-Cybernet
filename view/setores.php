@@ -95,11 +95,12 @@
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="../model/grava_setotes.php">
+                                <form role="form" method="POST" action="../model/edita_setores.php">
                                     <fieldset>
                                         <div class="row">
                                             <div class="form-group col-lg-12">
                                                 <label for="exampleInputEmail1"></label>
+                                                <input type="hidden"  class="form-control"name="modalId" id="modalId" />
                                                 <input type="text" class="form-control" name="edita_setor" id="edita_setor" placeholder="Insira o setor">
                                             </div>
                                         

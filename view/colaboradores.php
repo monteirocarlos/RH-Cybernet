@@ -40,29 +40,29 @@ include "../model/banco.php";
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nome completo</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_nome" id="grava_colaborador_nome" placeholder="Insira seu nome">
+                                                <input type="text" class="form-control" name="grava_colaborador_nome" id="grava_colaborador_nome" placeholder="Insira seu nome" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">CPF</label>
-                                                <input type="text" class="form-control " name="grava_colaborador_cpf" id="grava_colaborador_cpf" placeholder="Insira o CPF" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)">
+                                                <input type="text" class="form-control " name="grava_colaborador_cpf" id="grava_colaborador_cpf" placeholder="Insira o CPF" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">RG</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_rg" id="grava_colaborador_rg" maxlength="12" OnKeyPress="formatar('##.###.###-#', this)" placeholder="Insira o RG">
+                                                <input type="text" class="form-control" name="grava_colaborador_rg" id="grava_colaborador_rg" maxlength="12" OnKeyPress="formatar('##.###.###-#', this)" placeholder="Insira o RG" required>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nascimento</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_nascimento" id="grava_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
+                                                <input type="text" class="form-control" name="grava_colaborador_nascimento" id="grava_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Admissão</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_admissao" id="grava_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
+                                                <input type="text" class="form-control" name="grava_colaborador_admissao" id="grava_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Sexo</label>
-                                                <select name="grava_colaborador_sexo" id="grava_colaborador_sexo" class="form-control">
+                                                <select name="grava_colaborador_sexo" id="grava_colaborador_sexo" class="form-control" required>
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_sexo ORDER BY sexo";
@@ -79,45 +79,45 @@ include "../model/banco.php";
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Telefone</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_telefone"id="grava_colaborador_telefone" maxlength="12" OnKeyPress="formatar('## ####-####', this)" placeholder="Número residencial" />
+                                                <input type="text" class="form-control" name="grava_colaborador_telefone"id="grava_colaborador_telefone" maxlength="12" OnKeyPress="formatar('## ####-####', this)" placeholder="Número residencial" required/>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Celular</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_celular"id="grava_colaborador_celular" maxlength="13" OnKeyPress="formatar('## #####-####', this)" placeholder="Insira o celular" />
+                                                <input type="text" class="form-control" name="grava_colaborador_celular"id="grava_colaborador_celular" maxlength="13" OnKeyPress="formatar('## #####-####', this)" placeholder="Insira o celular" required/>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">E-mail</label>
-                                                <input type="email" class="form-control" name="grava_colaborador_email"id="grava_colaborador_email" maxlength="15" placeholder="Insira o e-mail" />
+                                                <input type="email" class="form-control" name="grava_colaborador_email"id="grava_colaborador_email" maxlength="15" placeholder="Insira o e-mail" required/>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">CEP</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_cep"id="grava_colaborador_cep"  placeholder="CEP" maxlength="9" OnKeyPress="formatar('#####-###', this)" onblur="pesquisacep(this.value);"/>
+                                                <input type="text" class="form-control" name="grava_colaborador_cep"id="grava_colaborador_cep"  placeholder="CEP" maxlength="9" OnKeyPress="formatar('#####-###', this)" onblur="pesquisacep(this.value);" required/>
                                             </div>
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Rua</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_rua"id="grava_colaborador_rua" maxlength="15" placeholder="Rua" />
+                                                <input type="text" class="form-control" name="grava_colaborador_rua"id="grava_colaborador_rua" maxlength="15" placeholder="Rua" required/>
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Bairro</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_bairro"id="grava_colaborador_bairro" maxlength="15" placeholder="Bairro" />
+                                                <input type="text" class="form-control" name="grava_colaborador_bairro"id="grava_colaborador_bairro" maxlength="15" placeholder="Bairro" required/>
                                             </div>
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Nº</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_numero"id="grava_colaborador_numero" maxlength="4" placeholder="Número"/>
+                                                <input type="text" class="form-control" name="grava_colaborador_numero"id="grava_colaborador_numero" maxlength="4" placeholder="Número" required/>
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Cidade</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_cidade"id="grava_colaborador_cidade" maxlength="15" placeholder="Cidade" />
+                                                <input type="text" class="form-control" name="grava_colaborador_cidade"id="grava_colaborador_cidade" maxlength="15" placeholder="Cidade" required/>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                         <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Setor</label>
-                                                <select name="grava_colaborador_setor" id="grava_colaborador_setor" class="form-control">
+                                                <select name="grava_colaborador_setor" id="grava_colaborador_setor" class="form-control" required>
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_setores";
@@ -130,7 +130,7 @@ include "../model/banco.php";
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Cargo</label>
-                                                <select name="grava_colaborador_cargo" id="grava_colaborador_cargo" class="form-control">
+                                                <select name="grava_colaborador_cargo" id="grava_colaborador_cargo" class="form-control" required>
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo";
@@ -144,7 +144,7 @@ include "../model/banco.php";
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Categoria</label>
-                                                <select name="grava_colaborador_categoria" id="grava_colaborador_categoria" class="form-control">
+                                                <select name="grava_colaborador_categoria" id="grava_colaborador_categoria" class="form-control" required>
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_categoria";
@@ -158,7 +158,7 @@ include "../model/banco.php";
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Condição</label>
                                                 <select name="grava_colaborador_condicao" id="grava_colaborador_condicao" class="form-control">
-                                                    <option value="">Selecione</option>
+                                                    <option value="">Selecione</option required>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_condicao";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
@@ -585,76 +585,47 @@ function editar(e) {
   $("#view_colaborador_cidade").val(cidade);
   $("#view_colaborador_setor").val(setor);
   $("#view_colaborador_cargo").val(cargo);
-  $("#view_colaborador_categoria").val(categoria);
-
-}
+  $("#view_colaborador_categoria").val(categoria); }
 </script>
 
-
 <script type="text/javascript" >
-    
     function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
             document.getElementById('grava_colaborador_rua').value=("");
             document.getElementById('grava_colaborador_bairro').value=("");
             document.getElementById('grava_colaborador_cidade').value=("");
     }
-
     function meu_callback(conteudo) {
         if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
             document.getElementById('grava_colaborador_rua').value=(conteudo.logradouro);
             document.getElementById('grava_colaborador_bairro').value=(conteudo.bairro);
             document.getElementById('grava_colaborador_cidade').value=(conteudo.localidade);
-        } //end if.
+        }
         else {
-            //CEP não Encontrado.
             limpa_formulário_cep();
             alert("CEP não encontrado.");
         }
     }
-        
     function pesquisacep(valor) {
-
-        //Nova variável "cep" somente com dígitos.
         var cep = valor.replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
         if (cep != "") {
-
-            //Expressão regular para validar o CEP.
             var validacep = /^[0-9]{8}$/;
-
-            //Valida o formato do CEP.
             if(validacep.test(cep)) {
-
-                //Preenche os campos com "..." enquanto consulta webservice.
                 document.getElementById('grava_colaborador_rua').value="...";
                 document.getElementById('grava_colaborador_bairro').value="...";
                 document.getElementById('grava_colaborador_cidade').value="...";
-
-                //Cria um elemento javascript.
                 var script = document.createElement('script');
-
-                //Sincroniza com o callback.
                 script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
                 document.body.appendChild(script);
-
-            } //end if.
+            } 
             else {
-                //cep é inválido.
                 limpa_formulário_cep();
                 alert("Formato de CEP inválido.");
             }
-        } //end if.
+        }
         else {
-            //cep sem valor, limpa formulário.
             limpa_formulário_cep();
         }
     };
-
     </script>
 
 </body>
