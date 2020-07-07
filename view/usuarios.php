@@ -32,29 +32,34 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                            <div class="modal-body">
-                            <form method="POST" action="../model/grava_usuarios.php">
-				<div class="form-group">
-					<label for="nome">Nome</label>
-					<input type="text" class="form-control" name="grava_usuario_nome"  id="grava_usuario_nome" aria-describedby="nomeHelp" placeholder="Seu nome completo" />
-				</div>
-				<div class="form-group">
-					<label for="usuario">Usuário</label>
-					<input type="text" class="form-control"  name="grava_usuario_usuario" id="grava_usuario_usuario" placeholder="Seu usuário"/>
-				</div>
-				<div class="form-group">
-					<label for="senha">Senha</label>
-					<input type="password" class="form-control" name="grava_usuario_senha" id="grava_usuario_senha" placeholder="Sua senha"/>
-				</div>
-				<button type="submit" class="btn btn-primary">Adicionar</button>
-				</form>
-                                 
-                                    </fieldset>
+                                <div class="modal-body">
+                                <form role="form" method="POST" action="../model/grava_usuarios.php">
+                                    <fieldset>
+                                         <div class="form-group">
+                                        <label for="nome">Nome</label>
+                                        <input type="text" class="form-control" name="grava_usuario_nome"  id="grava_usuario_nome" aria-describedby="nomeHelp" placeholder="Seu nome completo" />
+                                        </div>
+
+                                        <div class="form-group">
+                                        <label for="usuario">Usuário</label>
+                                        <input type="text" class="form-control"  name="grava_usuario_usuario" id="grava_usuario_usuario" placeholder="Seu usuário"/>
+                                        </div>
+
+                                            <div class="form-group">
+                                        <label for="senha">Senha</label>
+                                        <input type="password" class="form-control" name="grava_usuario_senha" id="grava_usuario_senha" placeholder="Sua senha"/>
+                                        </div>
+                                          
+                                        </fieldset> 
+
+                                        <div class="teste">
+                                            <button type="submit" class="btn btn-primary">Cadastrar usuário</button>
+                                        </div>          
                                 </form>
                             </div>		
                         </div>
                         </div>
-                        </div>
+                        </div> 
                     <div class="card-header"></i>Usuários</div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -89,40 +94,46 @@
                     </div>
                 </div>
 
-                 <div class="modal fade" id="edita_usuarios_modal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+                <div class="modal fade" id="edita_usuarios_modal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="editarModalLabel">Editar usuário</h5>
+                                    <h5 class="modal-title" id="editarModalLabel">Editar setor</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             <div class="modal-body">
-                            <form method="POST" action="../model/edita_usuarios.php">
-				<div class="form-group">
-					<label for="nome">Nome</label>
-					<input type="text" class="form-control" name="edita_usuario_nome"  id="edita_usuario_nome" aria-describedby="nomeHelp" placeholder="Seu nome completo" />
-				</div>
-				<div class="form-group">
-					<label for="usuario">Usuário</label>
-					<input type="text" class="form-control"  name="edita_usuario_usuario" id="edita_usuario_usuario" placeholder="Seu usuário"/>
-				</div>
-				<div class="form-group">
-					<label for="senha">Senha</label>
-					<input type="password" class="form-control" name="edita_usuario_senha" id="edita_usuario_senha" placeholder="Sua senha"/>
-				</div>
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-				<button type="submit" class="btn btn-primary">Adicionar</button>
-				</form>
-                                 
-                                    </fieldset>
+                                <form role="form" method="POST" action="../model/edita_usuarios.php">
+                                    <fieldset>
+                                        <input type="hidden"  class="form-control"name="modalId" id="modalId" />
+
+                                        <div class="form-group">
+                                        <label for="nome">Nome</label>
+                                        <input type="text" class="form-control" name="edita_usuario_nome"  id="edita_usuario_nome" aria-describedby="nomeHelp" placeholder="Seu nome completo" />
+                                        </div>
+
+                                        <div class="form-group">
+                                        <label for="usuario">Usuário</label>
+                                        <input type="text" class="form-control"  name="edita_usuario_usuario" id="edita_usuario_usuario" placeholder="Seu usuário" disabled=""/>
+                                        </div>
+
+                                            <div class="form-group">
+                                        <label for="senha">Senha</label>
+                                        <input type="password" class="form-control" name="edita_usuario_senha" id="edita_usuario_senha" placeholder="Sua senha" required/>
+                                        </div>
+                                          
+                                        
+                                        </fieldset> 
+
+                                        <div class="teste">
+                                            <button type="submit" class="btn btn-primary">Editar usuário</button>
+                                        </div>          
                                 </form>
                             </div>		
                         </div>
                         </div>
-                        </div>                 
-
+                        </div> 
                         <?php include "footer.php" ?>
             </div>
         </div>
@@ -134,20 +145,15 @@
             function editar(e) {
             var linha = $(e).closest("tr");
             var id = linha.find("td:eq(0)").text().trim();
-            var cargo = linha.find("td:eq(1)").text().trim();
-            var setor = linha.find("td:eq(2)").text().trim(); 
-            var nivel = linha.find("td:eq(3)").text().trim(); 
-            var cbo = linha.find("td:eq(4)").text().trim(); 
-            var salario = linha.find("td:eq(5)").text().trim(); 
-            var descricao = linha.find("td:eq(6)").text().trim(); 
+            var nome = linha.find("td:eq(1)").text().trim();
+            var usuario = linha.find("td:eq(2)").text().trim();
+            var senha = linha.find("td:eq(3)").text().trim();  
+            
         
             $("#modalId").val(id);    
-            $("#id_edt_cargo").val(cargo);
-            $("#id_edt_setor").val(setor);
-            $("#id_edt_nivel").val(nivel);
-            $("#id_edt_cbo").val(cbo);
-            $("#id_edt_salario").val(salario);
-            $("#id_edt_descricao").val(descricao);
+            $("#edita_usuario_nome").val(nome);
+            $("#edita_usuario_usuario").val(usuario);
+            $("#edita_usuario_senha").val(senha);
             }
             </script>
     </body>
