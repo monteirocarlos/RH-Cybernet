@@ -2000,6 +2000,9 @@ pre code {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
 }
 @media (prefers-reduced-motion: reduce) {
   .form-control {
@@ -10226,4 +10229,10 @@ body {
   margin-left: 400px;
   text-align: center;
   margin-top: 120px;
+}
+
+.botao button {
+
+  margin-top: 140px;
+
 }

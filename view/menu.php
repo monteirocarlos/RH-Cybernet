@@ -1,6 +1,7 @@
 <?php
 session_start();
 include ("../model/verifica_login.php");
+include ("../model/banco.php");
 ?>
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -39,7 +40,7 @@ include ("../model/verifica_login.php");
                             ></a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="colaboradores.php">Colaboradores</a><a class="nav-link" href="cargos.php">Cargos</a>
-                                <a class="nav-link" href="setores.php">Setores</a>
+                                <a class="nav-link" href="setores.php">Setores</a><a class="nav-link" href="promocoes.php">Promoções</a>
                                 </nav>
                             </div>
                             
@@ -49,7 +50,7 @@ include ("../model/verifica_login.php");
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="usuarios.php">Registrar usuário</a><a class="nav-link" href="password.html">Alterar senha</a></nav>
+                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="usuarios.php">Registrar usuário</a><a class="nav-link" href="password.html">Custos com beneficios</a></nav>
                                     </div>   
                             </div>
                     </div>
