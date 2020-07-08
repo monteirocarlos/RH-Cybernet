@@ -1,5 +1,7 @@
 <?php
-include "../model/banco.php";
+session_start();
+include ("../model/verifica_login.php");
+include ("../model/banco.php");
 ?>
 
 <!DOCTYPE html>

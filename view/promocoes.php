@@ -22,9 +22,6 @@ include ("../model/banco.php");
     session_start();
     include('menu.php');
     ?>
-
-    
-
             <div id="layoutSidenav_content">
                 <div class="card mb-4">
                     <div class="teste">
@@ -54,7 +51,7 @@ include ("../model/banco.php");
                                         <div class="row">
                                         <div class="form-group col-lg-12">
                                                 <label for="exampleInputEmail1">Nome do colaborador</label>
-                                                <select name="grava_promocao_colaborador" id="grava_promocao_colaborador" class="form-control">
+                                                <select name="grava_promocao_colaborador" id="grava_promocao_colaborador" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_colaboradores";
@@ -71,7 +68,7 @@ include ("../model/banco.php");
                                        
                                         <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Setor</label>
-                                                <select name="grava_promocao_setor" id="grava_promocao_setor" class="form-control">
+                                                <select name="grava_promocao_setor" id="grava_promocao_setor" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_setores";
@@ -85,7 +82,7 @@ include ("../model/banco.php");
 
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Antigo cargo</label>
-                                                <select name="grava_promocao_antigo_cargo" id="grava_promocao_antigo_cargo" class="form-control">
+                                                <select name="grava_promocao_antigo_cargo" id="grava_promocao_antigo_cargo" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_cargo";
@@ -98,7 +95,7 @@ include ("../model/banco.php");
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Novo cargo</label>
-                                                <select name="grava_promocao_novo_cargo" id="grava_promocao_novo_cargo" class="form-control">
+                                                <select name="grava_promocao_novo_cargo" id="grava_promocao_novo_cargo" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_cargo";
@@ -114,7 +111,7 @@ include ("../model/banco.php");
                                         <input type="hidden"  class="form-control" name="modalId" id="modalId" />
 
                                                 <label for="exampleInputEmail1">Categoria</label>
-                                                <select name="grava_promocao_categoria" id="grava_promocao_categoria" class="form-control">
+                                                <select name="grava_promocao_categoria" id="grava_promocao_categoria" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_categoria";
@@ -128,17 +125,17 @@ include ("../model/banco.php");
 
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Salário anterior</label>
-                                                <input type="text" class="form-control" name="grava_promocao_antigo_salario" id="grava_promocao_antigo_salario" placeholder="Salário anterior">
+                                                <input type="text" class="form-control" name="grava_promocao_antigo_salario" id="grava_promocao_antigo_salario" placeholder="Salário anterior" required>
                                             </div>
                                             
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Salário posterior</label>
-                                                <input type="text" class="form-control" name="grava_promocao_novo_salario" id="grava_promocao_novo_salario" placeholder="Insira o salário">
+                                                <input type="text" class="form-control" name="grava_promocao_novo_salario" id="grava_promocao_novo_salario" placeholder="Insira o salário" required>
                                             </div>
                                             
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Data promoção</label>
-                                                <input type="text" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
+                                                <input type="text" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
                                             
                                             </fieldset> 
@@ -192,6 +189,20 @@ include ("../model/banco.php");
         </div>                                          
         <?php include "footer.php" ?>
         </div>
+
+        <script>
+
+        function formatar(mascara, documento){
+            var i = documento.value.length;
+            var saida = mascara.substring(0,1);
+            var texto = mascara.substring(i)
+            
+            if (texto.substring(0,1) != saida){
+                        documento.value += texto.substring(0,1);
+            }
+        }
+</script>
+
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
