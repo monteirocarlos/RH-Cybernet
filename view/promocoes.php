@@ -23,6 +23,8 @@ include ("../model/banco.php");
     include('menu.php');
     ?>
 
+    
+
             <div id="layoutSidenav_content">
                 <div class="card mb-4">
                     <div class="teste">
@@ -36,26 +38,6 @@ include ("../model/banco.php");
                         </div>			
                         </div>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-bordered cores"  id="dataTable" width="100%" cellspacing="0">
-
-                                <?php 
-                                $lista_cargos = "SELECT * FROM tb_cargo";
-                                $con = $mysqli->query($lista_cargos) or die ($mysqli->error);
-                                while($dados = $con->fetch_array()){ ?>
-                                
-                                <tbody class="cores">
-                                    <td style="display:none;"><?php echo $dados['id_cargo'];?></td>
-                                    <td style="display:none;"><?php echo $dados['cargo'];?></td>
-                                    <td style="display:none;"><?php echo $dados['setor'];?></td>
-                                    <td style="display:none;"><?php echo $dados['nivel'];?></td>
-                                    <td style="display:none;"><?php echo $dados['cbo'];?></td>
-                                    <td style="display:none;"><?php echo $dados['salario'];?></td>
-                                    <td style="display:none;"><?php echo $dados['descricao'];?></td>
-                                    <?php } ?>
-                            </tbody>
-                            </table>
-                    </div>
 
                     <div class="modal fade" id="promocao_cargos" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -71,8 +53,6 @@ include ("../model/banco.php");
                                     <fieldset>
                                         <div class="row">
                                         <div class="form-group col-lg-12">
-                                        <input type="hidden"  class="form-control" name="modalId" id="modalId" />
-
                                                 <label for="exampleInputEmail1">Nome do colaborador</label>
                                                 <select name="grava_promocao_colaborador" id="grava_promocao_colaborador" class="form-control">
                                                     <option value="">Selecionar</option>
@@ -85,12 +65,25 @@ include ("../model/banco.php");
 				                                    ?>
                                                 </select>
                                             </div>
-                                        
-                                            </div>
+                                        </div>
 
                                         <div class="row">
                                        
-                                            <div class="form-group col-lg-4">
+                                        <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Setor</label>
+                                                <select name="grava_promocao_setor" id="grava_promocao_setor" class="form-control">
+                                                    <option value="">Selecionar</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_setores";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
+					                                }
+				                                    ?>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Antigo cargo</label>
                                                 <select name="grava_promocao_antigo_cargo" id="grava_promocao_antigo_cargo" class="form-control">
                                                     <option value="">Selecionar</option>
@@ -103,7 +96,7 @@ include ("../model/banco.php");
 				                                    ?>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-lg-4">
+                                            <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Novo cargo</label>
                                                 <select name="grava_promocao_novo_cargo" id="grava_promocao_novo_cargo" class="form-control">
                                                     <option value="">Selecionar</option>
@@ -117,7 +110,7 @@ include ("../model/banco.php");
                                                 </select>
                                             </div>
 
-                                            <div class="form-group col-lg-4">
+                                            <div class="form-group col-lg-3">
                                         <input type="hidden"  class="form-control" name="modalId" id="modalId" />
 
                                                 <label for="exampleInputEmail1">Categoria</label>
@@ -160,8 +153,42 @@ include ("../model/banco.php");
                         </div>
                         </div>
 
-                      
-
+                        <div class="card-header"></i>Histórico de promoções</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered cores"  id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                    <tr>
+                                        <th>Colaborador</th>
+                                        <th>Setor</th>
+                                        <th>Antigo Cargo</th>
+                                        <th>Novo Cargo</th>
+                                        <th>Categoria</th>  
+                                        <th>Antigo Salário</th>
+                                        <th>Novo Salário</th>
+                                        <th>Data Promoção</th>                     
+                                    </tr>
+                                </thead>
+                                <?php 
+                                $lista_cargos = "SELECT * FROM tb_promocoes";
+                                $con = $mysqli->query($lista_cargos) or die ($mysqli->error);
+                                while($dados = $con->fetch_array()){ ?>
+                                
+                                <tbody>
+                                    <td><?php echo $dados['colaborador'];?></td>
+                                    <td><?php echo $dados['setor'];?></td>
+                                    <td><?php echo $dados['antigo_cargo'];?></td>
+                                    <td><?php echo $dados['novo_cargo'];?></td>
+                                    <td><?php echo $dados['categoria_cargo'];?></td>
+                                    <td><?php echo $dados['salario_anterior'];?></td>
+                                    <td><?php echo $dados['salario_posterior'];?></td>
+                                    <td><?php echo $dados['data_promocao'];?></td>
+                                    <?php } ?>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+  
         </div>                                          
         <?php include "footer.php" ?>
         </div>
