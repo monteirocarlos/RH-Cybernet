@@ -56,7 +56,7 @@ include ("../model/banco.php");
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nascimento</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_nascimento" id="grava_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
+                                                <input type="date" class="form-control" name="grava_colaborador_nascimento" id="grava_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Admissão</label>
@@ -159,8 +159,8 @@ include ("../model/banco.php");
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Condição</label>
-                                                <select name="grava_colaborador_condicao" id="grava_colaborador_condicao" class="form-control">
-                                                    <option value="">Selecione</option required>
+                                                <select name="grava_colaborador_condicao" id="grava_colaborador_condicao" class="form-control" required>
+                                                    <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_condicao";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
