@@ -27,10 +27,8 @@ include ("../model/banco.php");
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Visão geral</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
+                        <h1 class="mt-4">Visão geral</h1><br>
+                       
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
@@ -53,16 +51,26 @@ include ("../model/banco.php");
 
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">EM DESENVOLVIMENTO</div>
+                                    <div class="card-body">
+                                    
+                                    <?php
+                                    $sql="SELECT count(nascimento) AS total FROM tb_colaboradores WHERE DATE_FORMAT(tb_colaboradores.nascimento,'%m-%d') = 
+                                    DATE_FORMAT((CURDATE()),'%m-%d')";
+                                    $result=mysqli_query($mysqli,$sql);
+                                    // Associative array
+                                    $row=mysqli_fetch_assoc($result);?>
+                                     <h1><?php echo $row['total']; ?></h1>
+                                    
+                                    </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Detalhes</a>
+                                        <a class="small text-white stretched-link" href="aniversariantes.php">Aniversariantes do dia</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">EM DESENVOLVIMENTO</div>
+                                    <div class="card-body"><h3>EM DESENVOLVIMENTO</h3></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">Detalhes</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -71,7 +79,7 @@ include ("../model/banco.php");
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">EM DESENVOLVIMENTO</div>
+                                    <div class="card-body"><h3>EM DESENVOLVIMENTO</h3></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">Detalhes</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
