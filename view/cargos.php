@@ -43,11 +43,11 @@ include ("../model/banco.php");
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Cargo</label>
-                                                <input type="text" class="form-control" name="id_cargo" id="id_cargo" placeholder="Insira o cargo">
+                                                <input type="text" class="form-control" name="id_cargo" id="id_cargo" placeholder="Insira o cargo" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Setor</label>
-                                                <select name="id_setor" id="id_setor" class="form-control">
+                                                <select name="id_setor" id="id_setor" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_setores";
@@ -60,7 +60,7 @@ include ("../model/banco.php");
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nível</label>
-                                                <select name="id_nivel" id="id_nivel" class="form-control">
+                                                <select name="id_nivel" id="id_nivel" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_categoria";
@@ -74,18 +74,18 @@ include ("../model/banco.php");
 
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">CBO</label>
-                                                <input type="text" class="form-control" name="id_cbo" id="id_cbo" placeholder="Insira o CBO">
+                                                <input type="text" class="form-control" name="id_cbo" id="id_cbo" placeholder="Insira o CBO" required>
                                             </div>
 
                                             
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Salário</label>
-                                                <input type="text" class="form-control" name="id_salario" id="id_salario" placeholder="Insira o salário">
+                                                <input type="text" class="form-control" name="id_salario" id="id_salario" placeholder="Insira o salário" required>
                                             </div>
 
                                             <div class="form-group col-lg-12">
                                                 <label for="exampleInputEmail1">Descrição</label>
-                                                <textarea type="textarea" class="form-control" name="id_descricao" id="id_descricao" placeholder="Insira a descrição de cargo"></textarea>
+                                                <textarea type="textarea" class="form-control" name="id_descricao" id="id_descricao" placeholder="Insira a descrição de cargo" required></textarea>
                                             </div>
                                         </fieldset> 
 
