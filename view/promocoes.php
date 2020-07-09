@@ -29,7 +29,6 @@ include ("../model/banco.php");
                         <div class="container">
                         <div class="md-form mt-0">
                         <form method="POST" action="pesquisar.php">
-                        <input class="form-control" type="text"  id="pesquisar" placeholder="Insira o nome do colaborador" aria-label="Search"><br>
                         <button type="button" class="btn btn-primary margin-top"  data-toggle="modal" data-target="#promocao_cargos">Nova promoção</button>&nbsp
                         </form>
                         </div>			
@@ -135,7 +134,7 @@ include ("../model/banco.php");
                                             
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Data promoção</label>
-                                                <input type="text" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
+                                                <input type="date" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
                                             
                                             </fieldset> 
@@ -167,7 +166,7 @@ include ("../model/banco.php");
                                     </tr>
                                 </thead>
                                 <?php 
-                                $lista_cargos = "SELECT * FROM tb_promocoes";
+                                $lista_cargos = "SELECT *, DATE_FORMAT (data_promocao, '%d/%m/%Y') as data_promocao FROM tb_promocoes";
                                 $con = $mysqli->query($lista_cargos) or die ($mysqli->error);
                                 while($dados = $con->fetch_array()){ ?>
                                 

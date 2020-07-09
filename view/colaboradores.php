@@ -60,7 +60,7 @@ include ("../model/banco.php");
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Admissão</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_admissao" id="grava_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
+                                                <input type="date" class="form-control" name="grava_colaborador_admissao" id="grava_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Sexo</label>
@@ -199,7 +199,7 @@ include ("../model/banco.php");
                                     </tr>
                                 </thead>
                                 <?php 
-                                $lista_colaboradores = "SELECT * FROM tb_colaboradores";
+                                $lista_colaboradores = "SELECT * , DATE_FORMAT (nascimento, '%d/%m/%Y') as nascimento, DATE_FORMAT (admissao, '%d/%m/%Y') as admissao FROM tb_colaboradores";
                                 $con = $mysqli->query($lista_colaboradores) or die ($mysqli->error);
                                 while($dados = $con->fetch_array()){ ?>
                                 <tbody>
@@ -269,11 +269,11 @@ include ("../model/banco.php");
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nascimento</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_nascimento" id="edita_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
+                                                <input type="date" class="form-control" name="edita_colaborador_nascimento" id="edita_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Admissão</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_admissao" id="edita_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
+                                                <input type="date" class="form-control" name="edita_colaborador_admissao" id="edita_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Sexo</label>
@@ -385,7 +385,7 @@ include ("../model/banco.php");
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nascimento</label>
-                                                <input type="text" class="form-control" name="view_colaborador_nascimento" id="view_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" disabled="">
+                                                <input type="text" class="form-control" name="view_colaborador_nascimento" id="view_colaborador_nascimento" value="  /  /  " placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" disabled="">
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Admissão</label>

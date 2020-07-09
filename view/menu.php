@@ -39,20 +39,20 @@ include ("../model/banco.php");
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="colaboradores.php">Colaboradores</a><a class="nav-link" href="cargos.php">Cargos</a>
-                                <a class="nav-link" href="setores.php">Setores</a><a class="nav-link" href="promocoes.php">Promoções</a><a class="nav-link" href="aniversariantes.php">Aniversariantes</a>
+                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="colaboradores.php">Colaboradores</a>
+                                <a class="nav-link" href="setores.php">Setores</a><a class="nav-link" href="cargos.php">Cargos</a><a class="nav-link" href="promocoes.php">Promoções</a><a class="nav-link" href="aniversariantes.php">Aniversariantes</a>
                                 </nav>
                             </div>
                             
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"
+                         <!--    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"
                              ><div class="sb-nav-link-icon"><i class="fas  fa-users"></i></div>
                                 Administração
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                         <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="usuarios.php">Registrar usuário</a><a class="nav-link" href="password.html">Custos com beneficios</a></nav>
-                                    </div>   
-                            </div>
+                                    </div>   -->
+                            </div> 
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small"><h4>Boas-vindas:</h4></div>
