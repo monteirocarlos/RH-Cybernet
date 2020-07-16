@@ -29,7 +29,8 @@ include ("../model/banco.php");
                         <div class="container">
                         <div class="md-form mt-0">
                         <form method="POST" action="pesquisar.php">
-                        <button type="button" class="btn btn-secondary margin-top"  data-toggle="modal" data-target="#agenda_ferias">Agendar Férias</button>&nbsp
+                        <button type="button" class="btn btn-secondary margin-top"  data-toggle="modal" data-target="#agenda_ferias">Novo agendamento</button>&nbsp
+                        <button type="button" class="btn btn-secondary margin-top"  data-toggle="modal" data-target="#agenda_ferias">Calculo de férias</button>&nbsp
                         </form>
                         </div>			
                         </div>
@@ -65,7 +66,7 @@ include ("../model/banco.php");
 
                                         <div class="row">
                                        
-                                        <div class="form-group col-lg-4">
+                                        <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Setor</label>
                                                 <select name="grava_ferias_setor" id="grava_ferias_setor" class="form-control" required>
                                                     <option value="">Selecionar</option>
@@ -78,29 +79,29 @@ include ("../model/banco.php");
 				                                    ?>
                                                 </select>
                                             </div>
-
-                                            <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Cargo</label>
-                                                <select name="grava_promocao_novo_cargo" id="grava_promocao_novo_cargo" class="form-control" required>
+                                            
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Abono</label>
+                                                <select name="grava_ferias_setor" id="grava_ferias_setor" class="form-control" required>
                                                     <option value="">Selecionar</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_cargo";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['cargo'].'">'.$row_cat_post['cargo'].'</option>';
-					                                }
-				                                    ?>
+                                                    <option value="Sim">Sim</option>
+				                                    <option value="Não">Não</option>
                                                 </select>
                                             </div>
-
-                                            <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Inicio</label>
-                                                <input type="date" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
+                                            
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Adiantamento</label>
+                                                <select name="grava_ferias_setor" id="grava_ferias_setor" class="form-control" required>
+                                                    <option value="">Selecionar</option>
+                                                    <option value="Sim">Sim</option>
+                                                    <option value="Não">Não</option>
+                                                </select>
                                             </div>
+                                            
 
-                                            <div class="form-group col-lg-12">
-                                                <label for="exampleInputEmail1">Teste</label>
-                                                <input type="text" class="form-control" name="grava_promocao_data" id="grava_promocao_data">
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Data inicial</label>
+                                                <input type="date" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
 
                                             </fieldset>
@@ -115,39 +116,10 @@ include ("../model/banco.php");
                         </div>
                         </div>
 
-                        <div class="card-header"></i>Histórico de promoções</div>
+                        <div class="card-header"></i>Férias em andamento no mês</div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered cores"  id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                    <tr>
-                                        <th>Colaborador</th>
-                                        <th>Setor</th>
-                                        <th>Antigo Cargo</th>
-                                        <th>Novo Cargo</th>
-                                        <th>Categoria</th>  
-                                        <th>Antigo Salário</th>
-                                        <th>Novo Salário</th>
-                                        <th>Data Promoção</th>                     
-                                    </tr>
-                                </thead>
-                                <?php 
-                                $lista_cargos = 'SELECT * FROM tb_promocoes';
-                                $con = $mysqli->query($lista_cargos) or die ($mysqli->error);
-                                while($dados = $con->fetch_array()){ ?>
-                                
-                                <tbody>
-                                    <td><?php echo $dados['colaborador'];?></td>
-                                    <td><?php echo $dados['setor'];?></td>
-                                    <td><?php echo $dados['antigo_cargo'];?></td>
-                                    <td><?php echo $dados['novo_cargo'];?></td>
-                                    <td><?php echo $dados['categoria_cargo'];?></td>
-                                    <td><?php echo $dados['salario_anterior'];?></td>
-                                    <td><?php echo $dados['salario_posterior'];?></td>
-                                    <td><?php echo date('d/m/Y', strtotime($dados['data_promocao']));?></td>
-                                    <?php } ?>
-                            </tbody>
-                            </table>
+                           
                         </div>
                     </div>
   

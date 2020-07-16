@@ -72,7 +72,7 @@ include ("../model/banco.php");
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body"><br><h5>EM DESENVOLVIMENTO</h5></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Detalhes</a>
+                                        <a class="small text-white stretched-link" href="#">Colaboradores em período de férias</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
