@@ -199,7 +199,7 @@ include ("../model/banco.php");
                                     </tr>
                                 </thead>
                                 <?php 
-                                $lista_colaboradores = "SELECT * , DATE_FORMAT (nascimento, '%d/%m/%Y') as nascimento, DATE_FORMAT (admissao, '%d/%m/%Y') as admissao FROM tb_colaboradores";
+                                $lista_colaboradores = "SELECT * FROM tb_colaboradores";
                                 $con = $mysqli->query($lista_colaboradores) or die ($mysqli->error);
                                 while($dados = $con->fetch_array()){ ?>
                                 <tbody>
@@ -218,8 +218,8 @@ include ("../model/banco.php");
                                     </td>
                                     <td style="display:none;"><?php echo $dados['cpf'];?></td>
                                     <td style="display:none;"><?php echo $dados['rg'];?></td>
-                                    <td style="display:none;"><?php echo $dados['nascimento'];?></td>
-                                    <td style="display:none;"><?php echo $dados['admissao'];?></td>
+                                    <td style="display:none;"><?php echo date('d/m/Y', strtotime($dados['nascimento']));?></td>
+                                    <td style="display:none;"><?php echo date('d/m/Y', strtotime($dados['admissao']));?></td>
                                     <td style="display:none;"><?php echo $dados['sexo'];?></td>
                                     <td style="display:none;"><?php echo $dados['telefone'];?></td>
                                     <td style="display:none;"><?php echo $dados['cep'];?></td>
@@ -481,7 +481,7 @@ include ("../model/banco.php");
 					                                $result_cat_post = "SELECT * FROM tb_categoria";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
 					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['id_categoria'].'">'.$row_cat_post['categoria'].'</option>';
+						                            echo '<option value="'.$row_cat_post['categoria'].'">'.$row_cat_post['categoria'].'</option>';
 					                                }
 				                                    ?>
                                                 </select>

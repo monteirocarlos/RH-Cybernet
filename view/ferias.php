@@ -12,7 +12,7 @@ include ("../model/banco.php");
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Promoções de colaboradores</title>
+        <title>Controle de férias</title>
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/teste.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
@@ -25,32 +25,32 @@ include ("../model/banco.php");
             <div id="layoutSidenav_content">
                 <div class="card mb-4">
                     <div class="teste">
-                        <h1>PROMOÇÕES</h1><br>
+                        <h1>CONTROLE DE FÉRIAS</h1><br>
                         <div class="container">
                         <div class="md-form mt-0">
                         <form method="POST" action="pesquisar.php">
-                        <button type="button" class="btn btn-primary margin-top"  data-toggle="modal" data-target="#promocao_cargos">Nova promoção</button>&nbsp
+                        <button type="button" class="btn btn-secondary margin-top"  data-toggle="modal" data-target="#agenda_ferias">Agendar Férias</button>&nbsp
                         </form>
                         </div>			
                         </div>
                         </div>
 
-                    <div class="modal fade" id="promocao_cargos" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="agenda_ferias" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="editarModalLabel">Promover cargo</h5>
+                                    <h5 class="modal-title" id="editarModalLabel">Agendar férias</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="../model/grava_promocao.php">
+                                <form role="form" method="POST" action="../model/agenda_ferias.php">
                                     <fieldset>
                                         <div class="row">
                                         <div class="form-group col-lg-12">
                                                 <label for="exampleInputEmail1">Nome do colaborador</label>
-                                                <select name="grava_promocao_colaborador" id="grava_promocao_colaborador" class="form-control" required>
+                                                <select name="grava_ferias_colaborador" id="grava_ferias_colaborador" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_colaboradores";
@@ -65,9 +65,9 @@ include ("../model/banco.php");
 
                                         <div class="row">
                                        
-                                        <div class="form-group col-lg-3">
+                                        <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Setor</label>
-                                                <select name="grava_promocao_setor" id="grava_promocao_setor" class="form-control" required>
+                                                <select name="grava_ferias_setor" id="grava_ferias_setor" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_setores";
@@ -79,21 +79,8 @@ include ("../model/banco.php");
                                                 </select>
                                             </div>
 
-                                            <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Antigo cargo</label>
-                                                <select name="grava_promocao_antigo_cargo" id="grava_promocao_antigo_cargo" class="form-control" required>
-                                                    <option value="">Selecionar</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_cargo";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['cargo'].'">'.$row_cat_post['cargo'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Novo cargo</label>
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Cargo</label>
                                                 <select name="grava_promocao_novo_cargo" id="grava_promocao_novo_cargo" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
@@ -106,41 +93,20 @@ include ("../model/banco.php");
                                                 </select>
                                             </div>
 
-                                            <div class="form-group col-lg-3">
-                                        <input type="hidden"  class="form-control" name="modalId" id="modalId" />
-
-                                                <label for="exampleInputEmail1">Categoria</label>
-                                                <select name="grava_promocao_categoria" id="grava_promocao_categoria" class="form-control" required>
-                                                    <option value="">Selecionar</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_categoria";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['categoria'].'">'.$row_cat_post['categoria'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
-                                            </div>
-
                                             <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Salário anterior</label>
-                                                <input type="text" class="form-control" name="grava_promocao_antigo_salario" id="grava_promocao_antigo_salario" placeholder="Salário anterior" required>
-                                            </div>
-                                            
-                                            <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Salário posterior</label>
-                                                <input type="text" class="form-control" name="grava_promocao_novo_salario" id="grava_promocao_novo_salario" placeholder="Insira o salário" required>
-                                            </div>
-                                            
-                                            <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Data promoção</label>
+                                                <label for="exampleInputEmail1">Inicio</label>
                                                 <input type="date" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
-                                            
-                                            </fieldset> 
 
+                                            <div class="form-group col-lg-12">
+                                                <label for="exampleInputEmail1">Teste</label>
+                                                <input type="text" class="form-control" name="grava_promocao_data" id="grava_promocao_data">
+                                            </div>
+
+                                            </fieldset>
+                                            
                                             <div class="teste">
-                                            <button type="submit" class="btn btn-primary">Efetuar promoção</button>
+                                            <button type="submit" class="btn btn-secondary">Concluir agendamento</button>
                                             </div>
                                  
                                 </form>

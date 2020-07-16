@@ -34,8 +34,7 @@ include ("../model/banco.php");
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <?php 
-                                $lista_aniversariantes = "SELECT nome, DATE_FORMAT (nascimento, '%d/%m/%Y') as nascimento FROM tb_colaboradores WHERE DATE_FORMAT(tb_colaboradores.nascimento,'%m-%d') = 
-                                DATE_FORMAT((CURDATE()),'%m-%d')";
+                                $lista_aniversariantes = "SELECT * FROM tb_colaboradores WHERE MONTH(nascimento) = MONTH(NOW()) and DAY(nascimento) = DAY(NOW())";
                                 $con = $mysqli->query($lista_aniversariantes) or die ($mysqli->error);
                                 while ($dados = $con->fetch_array()){ ?>
                                 <tbody>

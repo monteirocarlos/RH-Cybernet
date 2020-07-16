@@ -27,11 +27,11 @@ include ("../model/banco.php");
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Visão geral</h1><br>
+                        <h1 class="mt-4">VISÃO GERAL</h1><br>
                        
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                     
                                    <?php
@@ -70,7 +70,7 @@ include ("../model/banco.php");
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body"><h3>EM DESENVOLVIMENTO</h3></div>
+                                    <div class="card-body"><br><h5>EM DESENVOLVIMENTO</h5></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">Detalhes</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -79,16 +79,21 @@ include ("../model/banco.php");
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body"><h3>EM DESENVOLVIMENTO</h3></div>
+                                    <div class="card-body"><br><h5>EM DESENVOLVIMENTO</h5></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">Detalhes</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                         </div>
                         </div>
                 </main>
+                <div class="container">
+                        <div class="row">
+                        <img src="img/painel.svg" class="rounded mx-auto d-block" alt="Recursos Humanos">
+                        </div>
+                        </div>
             <?php include "footer.php" ?>
             </div>
             </div>
