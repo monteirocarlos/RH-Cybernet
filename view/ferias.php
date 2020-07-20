@@ -46,42 +46,35 @@ include ("../model/banco.php");
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST" action="../model/agenda_ferias.php">
+                                <form role="form" method="POST">
                                     <fieldset>
+                                    <div class="input-group md-form form-sm form-2 pl-0">
+                                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Nome do colaborador" aria-label="Search">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text red lighten-3" id="basic-text1"><button type="submit" class="fas fa-search text-grey"
+                                            aria-hidden="true"></button></span>
+                                    </div>
+                                    </div><br>
+      
                                         <div class="row">
-                                        <div class="form-group col-lg-12">
-                                                <label for="exampleInputEmail1">Nome do colaborador</label>
-                                                <select name="grava_ferias_colaborador" id="grava_ferias_colaborador" class="form-control" required>
-                                                    <option value="">Selecionar</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_colaboradores";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
-                                            </div>
+
+                                        <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Cargo</label>
+                                                <input type="text" class="form-control" name="grava_ferias_setor" id="grava_ferias_setor" disabled="">
                                         </div>
 
-                                        <div class="row">
-                                       
-                                        <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Setor</label>
-                                                <select name="grava_ferias_setor" id="grava_ferias_setor" class="form-control" required>
-                                                    <option value="">Selecionar</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_setores";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
+                                                <input type="text" class="form-control" name="grava_ferias_setor" id="grava_ferias_setor" disabled="">
+                                            </div>
+
+                                            <div class="form-group col-lg-4">
+                                                <label for="exampleInputEmail1">Salário</label>
+                                                <input type="text" class="form-control" name="grava_ferias_setor" id="grava_ferias_setor" disabled="">
                                             </div>
                                             
                                             <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Abono</label>
+                                                <label for="exampleInputEmail1">Abono pecuniário</label>
                                                 <select name="grava_ferias_setor" id="grava_ferias_setor" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <option value="Sim">Sim</option>
@@ -90,7 +83,7 @@ include ("../model/banco.php");
                                             </div>
                                             
                                             <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Adiantamento</label>
+                                                <label for="exampleInputEmail1">Adiantar 1ª parcela 13º</label>
                                                 <select name="grava_ferias_setor" id="grava_ferias_setor" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <option value="Sim">Sim</option>
@@ -103,7 +96,13 @@ include ("../model/banco.php");
                                                 <label for="exampleInputEmail1">Data inicial</label>
                                                 <input type="date" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
+                                            
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Término</label>
+                                                <input type="date" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
+                                            </div>
 
+                                            
                                             </fieldset>
                                             
                                             <div class="teste">
