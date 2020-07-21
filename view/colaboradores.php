@@ -117,25 +117,13 @@ include ("../model/banco.php");
                                         </div>
 
                                         <div class="row">
+                                        
                                         <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Setor</label>
-                                                <select name="grava_colaborador_setor" id="grava_colaborador_setor" class="form-control" required>
-                                                    <option value="">Selecione</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_setores";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Cargo</label>
                                                 <select name="grava_colaborador_cargo" id="grava_colaborador_cargo" class="form-control" required>
                                                     <option value="">Selecione</option>
                                                     <?php
-					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo";
+					                                $result_cat_post = "SELECT * FROM tb_cargo where ";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
 					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
 						                            echo '<option value="'.$row_cat_post['cargo'].'">'.$row_cat_post['cargo'].'</option>';
@@ -144,7 +132,7 @@ include ("../model/banco.php");
                                                 </select>
                                                 
                                             </div>
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Categoria</label>
                                                 <select name="grava_colaborador_categoria" id="grava_colaborador_categoria" class="form-control" required>
                                                     <option value="">Selecione</option>
@@ -157,6 +145,26 @@ include ("../model/banco.php");
 				                                    ?>
                                                 </select>
                                             </div>
+                                        
+                                        <div class="form-group col-lg-2">
+                                                <label for="exampleInputEmail1">Setor</label>
+                                                <select name="grava_colaborador_setor" id="grava_colaborador_setor" class="form-control" required>
+                                                    <option value="">Selecione</option>
+                                                    <?php
+					                                $result_cat_post = "SELECT * FROM tb_setores";
+					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
+					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
+						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
+					                                }
+				                                    ?>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="form-group col-lg-2">
+                                                <label for="exampleInputEmail1">Salário</label>
+                                                <input type="text" class="form-control" name="grava_colaborador_salario"id="grava_colaborador_salario"/>
+                                            </div>
+
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Condição</label>
                                                 <select name="grava_colaborador_condicao" id="grava_colaborador_condicao" class="form-control" required>

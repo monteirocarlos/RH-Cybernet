@@ -107,7 +107,7 @@ include ("../model/banco.php");
                                         <th style="display:none;">ID</th>
                                         <th>Cargo</th>
                                         <th>Setor</th>
-                                        <th>Nível</th>
+                                        <th style="display:none;">Nível</th>
                                         <th>CBO</th>
                                         <th style="display:none;">Salário</th>
                                         <th style="display:none;">Descrição</th>
@@ -124,7 +124,7 @@ include ("../model/banco.php");
                                     <td style="display:none;"><?php echo $dados['id_cargo'];?></td>
                                     <td><?php echo $dados['cargo'];?></td>
                                     <td><?php echo $dados['setor'];?></td>
-                                    <td><?php echo $dados['nivel'];?></td>
+                                    <td style="display:none;"><?php echo $dados['nivel'];?></td>
                                     <td><?php echo $dados['cbo'];?></td>
                                     <td style="display:none;"><?php echo $dados['salario'];?></td>
                                     <td style="display:none;"><?php echo $dados['descricao'];?></td>
