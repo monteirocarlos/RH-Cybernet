@@ -65,39 +65,22 @@ include ("../model/banco.php");
 
                                         <div class="row">
                                        
-                                        <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Setor</label>
-                                                <select name="grava_promocao_setor" id="grava_promocao_setor" class="form-control" required>
-                                                    <option value="">Selecionar</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_setores";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Cargo atual</label>
+                                                <input type="text" class="form-control" name="grava_promocao_antigo_cargo" id="grava_promocao_antigo_cargo">
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Antigo cargo</label>
-                                                <select name="grava_promocao_antigo_cargo" id="grava_promocao_antigo_cargo" class="form-control" required>
-                                                    <option value="">Selecionar</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_cargo";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['cargo'].'">'.$row_cat_post['cargo'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
+                                                <label for="exampleInputEmail1">Setor atual</label>
+                                                <input type="text" class="form-control" name="grava_promocao_antigo_setor" id="grava_promocao_antigo_setor">
                                             </div>
+                                        
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Novo cargo</label>
                                                 <select name="grava_promocao_novo_cargo" id="grava_promocao_novo_cargo" class="form-control" required>
                                                     <option value="">Selecionar</option>
                                                     <?php
-					                                $result_cat_post = "SELECT * FROM tb_cargo";
+					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo ";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
 					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
 						                            echo '<option value="'.$row_cat_post['cargo'].'">'.$row_cat_post['cargo'].'</option>';
@@ -107,29 +90,19 @@ include ("../model/banco.php");
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                        <input type="hidden"  class="form-control" name="modalId" id="modalId" />
-
-                                                <label for="exampleInputEmail1">Categoria</label>
-                                                <select name="grava_promocao_categoria" id="grava_promocao_categoria" class="form-control" required>
-                                                    <option value="">Selecionar</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_categoria";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['categoria'].'">'.$row_cat_post['categoria'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
+                                                <label for="exampleInputEmail1">Novo setor</label>
+                                                <input type="text" class="form-control" name="grava_promocao_novo_setor" id="grava_promocao_novo_setor">
                                             </div>
-
+                                            
+                                        
                                             <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Salário anterior</label>
-                                                <input type="text" class="form-control" name="grava_promocao_antigo_salario" id="grava_promocao_antigo_salario" placeholder="Salário anterior" required>
+                                                <label for="exampleInputEmail1">Salário atual</label>
+                                                <input type="text" class="form-control" name="grava_promocao_antigo_salario" id="grava_promocao_antigo_salario">
                                             </div>
                                             
                                             <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Salário posterior</label>
-                                                <input type="text" class="form-control" name="grava_promocao_novo_salario" id="grava_promocao_novo_salario" placeholder="Insira o salário" required>
+                                                <label for="exampleInputEmail1">Novo salário</label>
+                                                <input type="text" class="form-control" name="grava_promocao_novo_salario" id="grava_promocao_novo_salario">
                                             </div>
                                             
                                             <div class="form-group col-lg-4">
@@ -201,6 +174,41 @@ include ("../model/banco.php");
             }
         }
 </script>
+
+                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+                    
+                    <script type='text/javascript'>
+                        $(document).ready(function(){
+                            $("select[name='grava_promocao_colaborador']").blur(function(){
+                                var $colaborador_cargo = $("input[name='grava_promocao_antigo_cargo']");
+                                var $colaborador_setor = $("input[name='grava_promocao_antigo_setor']");
+                                var $colaborador_salario = $("input[name='grava_promocao_antigo_salario']");
+                                $.getJSON('../model/pesquisa_promocoes.php',{ 
+                                    codigo: $( this ).val() 
+                                },function( json ){
+                                    $colaborador_cargo.val( json.colaborador_cargo );
+                                    $colaborador_setor.val( json.colaborador_setor );
+                                    $colaborador_salario.val( json.colaborador_salario );
+                                });
+                            });
+                        });
+                    </script>
+                    
+                    
+                    <script type='text/javascript'>
+                        $(document).ready(function(){
+                            $("select[name='grava_promocao_novo_cargo']").blur(function(){
+                                var $novo_promocao_setor = $("input[name='grava_promocao_novo_setor']");
+                                var $novo_promocao_salario = $("input[name='grava_promocao_novo_salario']");
+                                $.getJSON('../model/pesquisa_promocoes_novo.php',{ 
+                                    codigo: $( this ).val() 
+                                },function( json ){
+                                    $novo_promocao_setor.val( json.novo_promocao_setor );
+                                    $novo_promocao_salario.val( json.novo_promocao_salario );
+                                });
+                            });
+                        });
+                    </script>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
