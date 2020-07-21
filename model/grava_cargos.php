@@ -9,7 +9,7 @@ $cbo = ($_POST["id_cbo"]);
 $salario = ($_POST["id_salario"]);
 $descricao = ($_POST["id_descricao"]);
 
-$executa = "INSERT INTO tb_cargo (cargo, setor, nivel, cbo, salario, descricao) VALUES ('$cargo - $nivel', '$setor', '$nivel', '$cbo', '$salario', '$descricao')";
+$executa = "INSERT INTO tb_cargo (cargo, cargo_edt, setor, nivel, cbo, salario, descricao) VALUES ('$cargo - $nivel', '$cargo', '$setor', '$nivel', '$cbo', '$salario', '$descricao')";
       
 $query = $mysqli->query($executa);
 

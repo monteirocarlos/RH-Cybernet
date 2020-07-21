@@ -128,6 +128,7 @@ include ("../model/banco.php");
                                     <td><?php echo $dados['cbo'];?></td>
                                     <td style="display:none;"><?php echo $dados['salario'];?></td>
                                     <td style="display:none;"><?php echo $dados['descricao'];?></td>
+                                    <td style="display:none;"><?php echo $dados['cargo_edt'];?></td>
                                     <td>  
                                     <i class="fas fa-eye ml-1" title="Editar" data-toggle="modal" data-target="#view_cargo_modal" class="btnEditar" onclick="editar(this)"></i>
                                     <i class="fas fa-edit ml-1" title="Editar" data-toggle="modal" data-target="#edtsetorModal" class="btnEditar" onclick="editar(this)"></i>
@@ -295,7 +296,7 @@ include ("../model/banco.php");
             function editar(e) {
             var linha = $(e).closest("tr");
             var id = linha.find("td:eq(0)").text().trim();
-            var cargo = linha.find("td:eq(1)").text().trim();
+            var cargo = linha.find("td:eq(7)").text().trim();
             var setor = linha.find("td:eq(2)").text().trim(); 
             var nivel = linha.find("td:eq(3)").text().trim(); 
             var cbo = linha.find("td:eq(4)").text().trim(); 
