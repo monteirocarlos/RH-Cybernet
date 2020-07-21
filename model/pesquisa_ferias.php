@@ -8,8 +8,11 @@ function retorna($codigo, $mysqli){
 		$row_colaborador = mysqli_fetch_assoc($resultado_colaborador);
 		$valores['ferias_cargo'] = $row_colaborador['cargo'];
 		$valores['ferias_setor'] = $row_colaborador['setor'];
+		$valores['ferias_categoria'] = $row_colaborador['categoria'];
 	}else{
-		$valores['nome_colaborador'] = 'Cargo não encontrado';
+		
+		$valores['ferias_setor'] = 'Selecione colaborador';
+		
 	}
 	return json_encode($valores);
 }

@@ -64,16 +64,25 @@ include ("../model/banco.php");
       
                                         <div class="row">
 
-                                        <div class="form-group col-lg-6">
-                                                <label for="exampleInputEmail1">Cargo</label>
-                                                <input type="text" class="form-control" name="grava_ferias_cargo" id="grava_ferias_cargo">
+                                        <div class="form-group col-lg-3">
+                                            <label for="exampleInputEmail1">Setor</label>
+                                            <input type="text" class="form-control" name="grava_ferias_setor" id="grava_ferias_setor" disabled="">
                                         </div>
 
-                                            <div class="form-group col-lg-6">
-                                                <label for="exampleInputEmail1">Setor</label>
-                                                <input type="text" class="form-control" name="grava_ferias_setor" id="grava_ferias_setor">
-                                            </div>
+                                        <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Cargo</label>
+                                                <input type="text" class="form-control" name="grava_ferias_cargo" id="grava_ferias_cargo" disabled="">
+                                        </div>
 
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Categoria</label>
+                                                <input type="text" class="form-control" name="grava_ferias_categoria" id="grava_ferias_categoria" disabled="">
+                                            </div>
+                                            
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Salário</label>
+                                                <input type="text" class="form-control" name="grava_ferias_salario" id="grava_ferias_salario" disabled="">
+                                            </div>
                                             
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Abono pecuniário</label>
@@ -147,11 +156,14 @@ include ("../model/banco.php");
 				$("select[name='grava_ferias_colaborador']").blur(function(){
 					var $ferias_cargo = $("input[name='grava_ferias_cargo']");
 					var $ferias_setor = $("input[name='grava_ferias_setor']");
+                    var $ferias_categoria = $("input[name='grava_ferias_categoria']");
 					$.getJSON('../model/pesquisa_ferias.php',{ 
 						codigo: $( this ).val() 
 					},function( json ){
 						$ferias_cargo.val( json.ferias_cargo );
 						$ferias_setor.val( json.ferias_setor );
+                        $ferias_categoria.val( json.ferias_categoria );
+                        $ferias_salario.val( json.ferias_salario );
 					});
 				});
 			});
@@ -161,3 +173,5 @@ include ("../model/banco.php");
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         </html>
+
+        
