@@ -118,12 +118,12 @@ include ("../model/banco.php");
 
                                         <div class="row">
                                         
-                                        <div class="form-group col-lg-3">
+                                        <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Cargo</label>
-                                                <select name="grava_colaborador_cargo" id="grava_colaborador_cargo" class="form-control" required>
+                                                <select name="grava_colaborador_cargo" id="grava_colaborador_cargo" class="form-control" required>  
                                                     <option value="">Selecione</option>
                                                     <?php
-					                                $result_cat_post = "SELECT * FROM tb_cargo where ";
+					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo";
 					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
 					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
 						                            echo '<option value="'.$row_cat_post['cargo'].'">'.$row_cat_post['cargo'].'</option>';
@@ -132,40 +132,23 @@ include ("../model/banco.php");
                                                 </select>
                                                 
                                             </div>
+                                            
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Categoria</label>
-                                                <select name="grava_colaborador_categoria" id="grava_colaborador_categoria" class="form-control" required>
-                                                    <option value="">Selecione</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_categoria";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['id_categoria'].'">'.$row_cat_post['categoria'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
+                                                <input type="text" class="form-control" name="grava_colaborador_categoria"id="grava_colaborador_categoria" readonly=“true”/>
                                             </div>
                                         
-                                        <div class="form-group col-lg-2">
+                                            <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Setor</label>
-                                                <select name="grava_colaborador_setor" id="grava_colaborador_setor" class="form-control" required>
-                                                    <option value="">Selecione</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_setores";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
+                                                <input type="text" class="form-control" name="grava_colaborador_setor"id="grava_colaborador_setor" readonly=“true”/>
                                             </div>
                                             
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Salário</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_salario"id="grava_colaborador_salario"/>
+                                                <input type="text" class="form-control" name="grava_colaborador_salario"id="grava_colaborador_salario" readonly=“true”/>
                                             </div>
 
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Condição</label>
                                                 <select name="grava_colaborador_condicao" id="grava_colaborador_condicao" class="form-control" required>
                                                     <option value="">Selecione</option>
@@ -183,7 +166,6 @@ include ("../model/banco.php");
                                             <button type="submit" class="btn btn-primary">Cadastrar colaborador</button>
                                         </div>
                                         
-                                 
                                     </fieldset>
                                 </form>
                             </div>		
@@ -637,6 +619,25 @@ function editar(e) {
         }
     };
     </script>
+
+    
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+            <script type='text/javascript'>
+                $(document).ready(function(){
+                    $("select[name='grava_colaborador_cargo']").blur(function(){
+                        var $colaborador_categoria = $("input[name='grava_colaborador_categoria']");
+                        var $colaborador_setor = $("input[name='grava_colaborador_setor']");
+                        var $colaborador_salario = $("input[name='grava_colaborador_salario']");
+                        $.getJSON('../model/pesquisa_cargo.php',{ 
+                            codigo: $( this ).val() 
+                        },function( json ){
+                            $colaborador_categoria.val( json.colaborador_categoria );
+                            $colaborador_setor.val( json.colaborador_setor );
+                            $colaborador_salario.val( json.colaborador_salario );
+                        });
+                    });
+                });
+            </script>
 
 </body>
 </html>

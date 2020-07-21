@@ -19,9 +19,10 @@ $cidade = ($_POST["grava_colaborador_cidade"]);
 $setor = ($_POST["grava_colaborador_setor"]);
 $cargo = ($_POST["grava_colaborador_cargo"]);
 $categoria = ($_POST["grava_colaborador_categoria"]);
+$salario = ($_POST["grava_colaborador_salario"]);
 $condicao = ($_POST["grava_colaborador_condicao"]);
 
-$executa = "INSERT INTO tb_colaboradores (nome, cpf, rg, nascimento, admissao, sexo, telefone, celular, email, condicao, cep, rua, bairro, numero, cidade, setor, cargo, categoria) VALUES ('$nome', '$cpf', '$rg', '$nascimento', '$admissao', '$sexo', '$telefone', '$celular', '$email', '$condicao', '$cep', '$rua', '$bairro', '$numero', '$cidade', '$setor', '$cargo', '$categoria')";
+$executa = "INSERT INTO tb_colaboradores (nome, cpf, rg, nascimento, admissao, sexo, telefone, celular, email, condicao, cep, rua, bairro, numero, cidade, setor, cargo, salario, categoria) VALUES ('$nome', '$cpf', '$rg', '$nascimento', '$admissao', '$sexo', '$telefone', '$celular', '$email', '$condicao', '$cep', '$rua', '$bairro', '$numero', '$cidade', '$setor', '$cargo', '$salario', '$categoria')";
       
 $query = $mysqli->query($executa);
 echo"<script language='javascript' type='text/javascript'>alert('Cadastrado!');window.location.href='../view/colaboradores.php'</script>";
