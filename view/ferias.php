@@ -117,7 +117,46 @@ include ("../model/banco.php");
                         <div class="card-header"></i>Férias em andamento no mês</div>
                     <div class="card-body">
                         <div class="table-responsive">
-                           
+                        <table class="table table-bordered cores"  id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th style="display:none;">ID</th>
+                                        <th>Colaborador</th>
+                                        <th>Cargo</th>
+                                        <th>Setor</th>
+                                        <th>Salário</th>
+                                        <th>Abono</th>
+                                        <th>Adiantamento</th>
+                                        <th>Período inicial</th>
+                                        <th>Término</th>
+                                        <th>Ações</th>                      
+                                    </tr>
+                                </thead>
+
+                                <?php 
+                                $lista_ferias = "SELECT * FROM tb_ferias";
+                                $con = $mysqli->query($lista_ferias) or die ($mysqli->error);
+                                while($dados = $con->fetch_array()){ ?>
+                                
+                                <tbody class="cores">
+                                    <td style="display:none;"><?php echo $dados['id_ferias'];?></td>
+                                    <td><?php echo $dados['colaborador'];?></td>
+                                    <td><?php echo $dados['cargo'];?></td>
+                                    <td><?php echo $dados['setor'];?></td>
+                                    <td><?php echo $dados['salario'];?></td>
+                                    <td><?php echo $dados['abono'];?></td>
+                                    <td><?php echo $dados['adiantamento'];?></td>
+                                    <td><?php echo date('d/m/Y', strtotime($dados['data_inicial']));?></td>
+                                    <td><?php echo $dados['data_inicial'];?></td>
+                                    <td>  
+                                    <button type="submit" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o agendamento do colaborador: <?php echo $dados['colaborador'];?> ?'))
+		                            location.href='../model/delete_cargos.php?id_cargo=<?php echo $dados['id_cargo']; ?>';" ></button>
+                                    </td>
+                                    <?php } ?>
+                            </tbody>
+                            </table>
+
+
                         </div>
                     </div>
   
