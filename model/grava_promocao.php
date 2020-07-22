@@ -3,19 +3,19 @@
 include "banco.php";
 
 $colaborador = $_POST["grava_promocao_colaborador"];
-$setor_cargo = $_POST["grava_promocao_setor"];
-$antigo_cargo = $_POST["grava_promocao_antigo_cargo"];
+$cargo_atual = $_POST["grava_promocao_cargo_atual"];
+$setor_atual = $_POST["grava_promocao_setor_atual"];
 $novo_cargo = $_POST["grava_promocao_novo_cargo"];
-$categoria_cargo = ($_POST["grava_promocao_categoria"]);
-$salario_anterior = ($_POST["grava_promocao_antigo_salario"]);
-$salario_novo = ($_POST["grava_promocao_novo_salario"]);
+$novo_setor = ($_POST["grava_promocao_novo_setor"]);
+$salario_atual = ($_POST["grava_promocao_salario_atual"]);
+$novo_salario = ($_POST["grava_promocao_novo_salario"]);
 $data_promocao =($_POST["grava_promocao_data"]);
 
-$executa = "INSERT INTO tb_promocoes (colaborador, setor, antigo_cargo, novo_cargo, categoria_cargo, salario_anterior, salario_posterior, data_promocao) VALUES ('$colaborador', '$setor_cargo', '$antigo_cargo', '$novo_cargo', '$categoria_cargo', '$salario_anterior', '$salario_novo', '$data_promocao')";
-      
+$executa = "INSERT INTO tb_promocoes (colaborador, cargo_atual, setor_atual, novo_cargo, novo_setor, salario_atual, novo_salario, data_promocao) VALUES ('$colaborador', '$cargo_atual', '$setor_atual', '$novo_cargo', '$novo_setor', '$salario_atual', '$novo_salario', '$data_promocao')";
+
 $query = $mysqli->query($executa);
 
-$executa = "UPDATE tb_colaboradores SET setor='$setor_cargo', cargo='$novo_cargo', categoria='$categoria_cargo' WHERE tb_colaboradores.nome='$colaborador'";
+$executa = "UPDATE tb_colaboradores SET setor='$novo_setor', cargo='$novo_cargo', salario='$novo_salario' WHERE tb_colaboradores.nome='$colaborador'";
 
 $query = $mysqli->query($executa);
 

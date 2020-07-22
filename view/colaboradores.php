@@ -132,18 +132,13 @@ include ("../model/banco.php");
                                                 </select>
                                                 
                                             </div>
-                                            
-                                            <div class="form-group col-lg-2">
-                                                <label for="exampleInputEmail1">Categoria</label>
-                                                <input type="text" class="form-control" name="grava_colaborador_categoria"id="grava_colaborador_categoria" readonly=“true”/>
-                                            </div>
-                                        
-                                            <div class="form-group col-lg-2">
+                                                              
+                                            <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Setor</label>
                                                 <input type="text" class="form-control" name="grava_colaborador_setor"id="grava_colaborador_setor" readonly=“true”/>
                                             </div>
                                             
-                                            <div class="form-group col-lg-2">
+                                            <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Salário</label>
                                                 <input type="text" class="form-control" name="grava_colaborador_salario"id="grava_colaborador_salario" readonly=“true”/>
                                             </div>
@@ -218,8 +213,7 @@ include ("../model/banco.php");
                                     <td style="display:none;"><?php echo $dados['numero'];?></td>
                                     <td style="display:none;"><?php echo $dados['cidade'];?></td>
                                     <td style="display:none;"><?php echo $dados['setor'];?></td>
-                                    <td style="display:none;"><?php echo $dados['categoria'];?></td>
-                                    
+                                    <td style="display:none;"><?php echo $dados['salario'];?></td>                                     
                                     <?php } ?>
                             </tbody>                            
                             </table>
@@ -381,18 +375,10 @@ include ("../model/banco.php");
                                                 <label for="exampleInputEmail1">Admissão</label>
                                                 <input type="text" class="form-control" name="view_colaborador_admissao" id="view_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" disabled="">
                                             </div>
+                                            
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Sexo</label>
-                                                <select name="view_colaborador_sexo" id="view_colaborador_sexo" class="form-control" disabled="">
-                                                    <option value="">Selecione</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_sexo ORDER BY sexo";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['sexo'].'">'.$row_cat_post['sexo'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
+                                                <input type="text" class="form-control" name="view_colaborador_sexo" id="view_colaborador_sexo" disabled="">
                                             </div>
                                             
                                         </div>
@@ -436,59 +422,27 @@ include ("../model/banco.php");
                                         </div>
 
                                         <div class="row">
+                                        
                                         <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Setor</label>
-                                                <select name="view_colaborador_setor" id="view_colaborador_setor" class="form-control" disabled="">
-                                                    <option value="">Selecione</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_setores";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['nome'].'">'.$row_cat_post['nome'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Cargo</label>
-                                                <select name="view_colaborador_cargo" id="view_colaborador_cargo" class="form-control" disabled="">
-                                                    <option value="">Selecione</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_cargo ORDER BY cargo";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['cargo'].'">'.$row_cat_post['cargo'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
-                                                
+                                                <input type="text" class="form-control" name="view_colaborador_cargo"id="view_colaborador_cargo"  disabled=""/>
                                             </div>
+                                        
                                             <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Categoria</label>
-                                                <select name="view_colaborador_categoria" id="view_colaborador_categoria" class="form-control" disabled="">
-                                                    <option value="">Selecione</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_categoria";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['categoria'].'">'.$row_cat_post['categoria'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
+                                                <label for="exampleInputEmail1">Setor</label>
+                                                <input type="text" class="form-control" name="view_colaborador_setor"id="view_colaborador_setor"  disabled=""/>
                                             </div>
+                                           
+                                            <div class="form-group col-lg-3">
+                                                <label for="exampleInputEmail1">Salário</label>
+                                                <input type="text" class="form-control" name="view_colaborador_salario"id="view_colaborador_salario"  disabled=""/>
+                                            </div>
+                                            
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Condição</label>
-                                                <select name="view_colaborador_condicao" id="view_colaborador_condicao" class="form-control" disabled="">
-                                                    <option value="">Selecione</option>
-                                                    <?php
-					                                $result_cat_post = "SELECT * FROM tb_condicao";
-					                                $resultado_cat_post = mysqli_query($mysqli, $result_cat_post);
-					                                while($row_cat_post = mysqli_fetch_assoc($resultado_cat_post) ) {
-						                            echo '<option value="'.$row_cat_post['condicao'].'">'.$row_cat_post['condicao'].'</option>';
-					                                }
-				                                    ?>
-                                                </select>
+                                                <input type="text" class="form-control" name="view_colaborador_condicao"id="view_colaborador_condicao"  disabled=""/>
                                             </div>
+
                                         </div>
                                     </fieldset>
                                 </form>
@@ -540,7 +494,7 @@ function editar(e) {
   var cidade = linha.find("td:eq(17)").text().trim();
   var setor = linha.find("td:eq(18)").text().trim();
   var cargo = linha.find("td:eq(4)").text().trim();
-  var categoria = linha.find("td:eq(19)").text().trim();
+  var salario = linha.find("td:eq(19)").text().trim();
   
   
   $("#modalId").val(id);
@@ -577,7 +531,7 @@ function editar(e) {
   $("#view_colaborador_cidade").val(cidade);
   $("#view_colaborador_setor").val(setor);
   $("#view_colaborador_cargo").val(cargo);
-  $("#view_colaborador_categoria").val(categoria); }
+  $("#view_colaborador_salario").val(salario); }
 </script>
 
 <script type="text/javascript" >
@@ -625,13 +579,11 @@ function editar(e) {
             <script type='text/javascript'>
                 $(document).ready(function(){
                     $("select[name='grava_colaborador_cargo']").blur(function(){
-                        var $colaborador_categoria = $("input[name='grava_colaborador_categoria']");
                         var $colaborador_setor = $("input[name='grava_colaborador_setor']");
                         var $colaborador_salario = $("input[name='grava_colaborador_salario']");
                         $.getJSON('../model/pesquisa_cargo.php',{ 
                             codigo: $( this ).val() 
                         },function( json ){
-                            $colaborador_categoria.val( json.colaborador_categoria );
                             $colaborador_setor.val( json.colaborador_setor );
                             $colaborador_salario.val( json.colaborador_salario );
                         });
