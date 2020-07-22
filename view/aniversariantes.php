@@ -25,11 +25,11 @@ include ("../model/banco.php");
             <div id="layoutSidenav_content">
                 <div class="card mb-4">
                     <div class="teste">
-                        <h2>Aniversariantes do dia</h2><br>
+                        <h2>Aniversariantes do Mês</h2><br>
                         </div>			
                         </div>
                         
-                        <div class="card-header"></i>Aniversariantes</div>
+                        <div class="card-header bg-secondary text-light"></i>Aniversariantes do dia</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -45,21 +45,40 @@ include ("../model/banco.php");
                             </tbody>  
                             </table>
                         </div>        
-        </div>                                          
-        <?php include "footer.php" ?>
-        </div>
-        <script>
+                    </div>    
 
-        function formatar(mascara, documento){
-            var i = documento.value.length;
-            var saida = mascara.substring(0,1);
-            var texto = mascara.substring(i)
-            
-            if (texto.substring(0,1) != saida){
-                        documento.value += texto.substring(0,1);
-            }
-        }
-</script>
+                    <div class="card-header bg-dark text-light"></i>Aniversariantes do mês</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <?php 
+                                $lista_aniversariantes = "SELECT * FROM tb_colaboradores WHERE MONTH(nascimento) = MONTH(NOW())";
+                                $con = $mysqli->query($lista_aniversariantes) or die ($mysqli->error);
+                                while ($dados = $con->fetch_array()){ ?>
+                                <tbody>
+                                    <td style="display:none;"><?php echo $dados['id_colaborador'];?></td>
+                                    <td><?php echo $dados['nome'];?></td>
+                                    <td><?php echo $dados ['nascimento'];?></td> 
+                                    <?php } ?> 
+                            </tbody>  
+                            </table>
+                        </div>        
+                </div> 
+
+                <?php include "footer.php" ?>
+                </div>
+                <script>
+
+                function formatar(mascara, documento){
+                    var i = documento.value.length;
+                    var saida = mascara.substring(0,1);
+                    var texto = mascara.substring(i)
+                    
+                    if (texto.substring(0,1) != saida){
+                                documento.value += texto.substring(0,1);
+                    }
+                }
+        </script>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

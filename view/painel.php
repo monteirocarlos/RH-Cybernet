@@ -54,8 +54,8 @@ include ("../model/banco.php");
                                     <div class="card-body">
                                     
                                     <?php
-                                    $sql="SELECT count(nascimento) AS total FROM tb_colaboradores WHERE DATE_FORMAT(tb_colaboradores.nascimento,'%m-%d') = 
-                                    DATE_FORMAT((CURDATE()),'%m-%d')";
+                                    $sql="SELECT count(nascimento) AS total FROM tb_colaboradores WHERE DATE_FORMAT(tb_colaboradores.nascimento,'%m') = 
+                                    DATE_FORMAT((CURDATE()),'%m')";
                                     $result=mysqli_query($mysqli,$sql);
                                     // Associative array
                                     $row=mysqli_fetch_assoc($result);?>
@@ -63,7 +63,7 @@ include ("../model/banco.php");
                                     
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="aniversariantes.php">Aniversariantes do dia</a>
+                                        <a class="small text-white stretched-link" href="aniversariantes.php">Aniversariantes do Mês</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
