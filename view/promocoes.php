@@ -67,12 +67,12 @@ include ("../model/banco.php");
                                        
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Cargo atual</label>
-                                                <input type="text" class="form-control" name="grava_promocao_cargo_atual" id="grava_promocao_cargo_atual">
+                                                <input type="text" class="form-control" name="grava_promocao_cargo_atual" id="grava_promocao_cargo_atual" readonly=“true”>
                                             </div>
 
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Setor atual</label>
-                                                <input type="text" class="form-control" name="grava_promocao_setor_atual" id="grava_promocao_setor_atual" >
+                                                <input type="text" class="form-control" name="grava_promocao_setor_atual" id="grava_promocao_setor_atual" readonly=“true”>
                                             </div>
                                         
                                             <div class="form-group col-lg-3">
@@ -91,18 +91,18 @@ include ("../model/banco.php");
 
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Novo setor</label>
-                                                <input type="text" class="form-control" name="grava_promocao_novo_setor" id="grava_promocao_novo_setor">
+                                                <input type="text" class="form-control" name="grava_promocao_novo_setor" id="grava_promocao_novo_setor" readonly=“true”>
                                             </div>
                                             
                                         
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Salário atual</label>
-                                                <input type="text" class="form-control" name="grava_promocao_salario_atual" id="grava_promocao_salario_atual">
+                                                <input type="text" class="form-control" name="grava_promocao_salario_atual" id="grava_promocao_salario_atual" readonly=“true”>
                                             </div>
                                             
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Novo salário</label>
-                                                <input type="text" class="form-control" name="grava_promocao_novo_salario" id="grava_promocao_novo_salario">
+                                                <input type="text" class="form-control" name="grava_promocao_novo_salario" id="grava_promocao_novo_salario" readonly=“true”>
                                             </div>
                                             
                                             <div class="form-group col-lg-4">

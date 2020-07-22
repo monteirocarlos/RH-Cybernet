@@ -25,7 +25,7 @@ include ("../model/banco.php");
             <div id="layoutSidenav_content">
                 <div class="card mb-4">
                     <div class="teste">
-                        <h2>Aniversariantes do Mês</h2><br>
+                        <h2>VISÃO GERAL ANIVERSARIANTES</h2><br>
                         </div>			
                         </div>
                         

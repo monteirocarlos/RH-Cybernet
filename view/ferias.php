@@ -65,17 +65,17 @@ include ("../model/banco.php");
 
                                         <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Cargo</label>
-                                                <input type="text" class="form-control" name="grava_ferias_cargo" id="grava_ferias_cargo">
+                                                <input type="text" class="form-control" name="grava_ferias_cargo" id="grava_ferias_cargo" readonly=“true”>
                                         </div>
 
                                         <div class="form-group col-lg-4">
                                             <label for="exampleInputEmail1">Setor</label>
-                                            <input type="text" class="form-control" name="grava_ferias_setor" id="grava_ferias_setor" >
+                                            <input type="text" class="form-control" name="grava_ferias_setor" id="grava_ferias_setor" readonly=“true”>
                                         </div>
                                            
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Salário</label>
-                                                <input type="text" class="form-control" name="grava_ferias_salario" id="grava_ferias_salario">
+                                                <input type="text" class="form-control" name="grava_ferias_salario" id="grava_ferias_salario" readonly=“true”>
                                             </div>
                                             
                                             <div class="form-group col-lg-4">
@@ -114,7 +114,43 @@ include ("../model/banco.php");
                         </div>
                         </div>
 
-                        <div class="card-header"></i>Férias em andamento no mês</div>
+                        <div class="card-header"></i>Colaboradores em período de férias</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                        <table class="table table-bordered cores"  id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th style="display:none;">ID</th>
+                                        <th>Colaborador</th>
+                                        <th>Cargo</th>
+                                        <th>Setor</th>
+                                        <th>Início</th>
+                                        <th>Retorno</th>
+                                                            
+                                    </tr>
+                                </thead>
+
+                                
+                                <?php 
+                                $lista_aniversariantes = "SELECT * FROM tb_ferias WHERE MONTH(data_inicial) = MONTH(NOW()) and YEAR(data_inicial) = YEAR(NOW())";
+                                $con = $mysqli->query($lista_aniversariantes) or die ($mysqli->error);
+                                while ($dados = $con->fetch_array()){ ?>
+                                
+                                <tbody class="cores">
+                                    <td style="display:none;"><?php echo $dados['id_ferias'];?></td>
+                                    <td><?php echo $dados['colaborador'];?></td>
+                                    <td><?php echo $dados['cargo'];?></td>
+                                    <td><?php echo $dados['setor'];?></td>
+                                    <td><?php echo date('d/m/Y', strtotime($dados['data_inicial']));?></td>
+                                    <td><?php echo date('d/m/Y', strtotime('+30 days', strtotime($dados['data_inicial'])));?></td>
+                                    <?php } ?>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                 
+
+                <div class="card-header"></i>Histórico de agendamentos</div>
                     <div class="card-body">
                         <div class="table-responsive">
                         <table class="table table-bordered cores"  id="dataTable" width="100%" cellspacing="0">
@@ -128,7 +164,7 @@ include ("../model/banco.php");
                                         <th>Abono</th>
                                         <th>Adiantamento</th>
                                         <th>Período inicial</th>
-                                        <th>Término</th>
+                                        <th>Retorno</th>
                                         <th>Ações</th>                      
                                     </tr>
                                 </thead>
@@ -147,20 +183,17 @@ include ("../model/banco.php");
                                     <td><?php echo $dados['abono'];?></td>
                                     <td><?php echo $dados['adiantamento'];?></td>
                                     <td><?php echo date('d/m/Y', strtotime($dados['data_inicial']));?></td>
-                                    <td><?php echo $dados['data_inicial'];?></td>
+                                    <td><?php echo date('d/m/Y', strtotime('+30 days', strtotime($dados['data_inicial'])));?></td>
                                     <td>  
-                                    <button type="submit" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o agendamento do colaborador: <?php echo $dados['colaborador'];?> ?'))
-		                            location.href='../model/delete_cargos.php?id_cargo=<?php echo $dados['id_cargo']; ?>';" ></button>
+                                    <button type="submit" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o agendamento do colaborador(a): <?php echo $dados['colaborador'];?> ?'))
+		                            location.href='../model/delete_ferias.php?id_ferias=<?php echo $dados['id_ferias']; ?>';" ></button>
                                     </td>
                                     <?php } ?>
                             </tbody>
                             </table>
-
-
                         </div>
-                    </div>
-  
-        </div>                                          
+                    </div>                             
+                </div>
         <?php include "footer.php" ?>
         </div>
 
