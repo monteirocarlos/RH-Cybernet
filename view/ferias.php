@@ -29,8 +29,7 @@ include ("../model/banco.php");
                         <div class="container">
                         <div class="md-form mt-0">
                         <form method="POST" action="pesquisar.php">
-                        <button type="button" class="btn btn-secondary margin-top"  data-toggle="modal" data-target="#agenda_ferias">Novo agendamento</button>&nbsp
-                        <button type="button" class="btn btn-secondary margin-top"  data-toggle="modal" data-target="#agenda_ferias">Calculo de férias</button>&nbsp
+                        <button type="button" class="btn btn-primary margin-top"  data-toggle="modal" data-target="#agenda_ferias">Novo agendamento</button>&nbsp
                         </form>
                         </div>			
                         </div>
@@ -46,7 +45,7 @@ include ("../model/banco.php");
                                     </button>
                                 </div>
                             <div class="modal-body">
-                                <form role="form" method="POST">
+                                <form role="form" method="POST" action="../model/grava_ferias.php">
                                     <fieldset>
                                     
                                     <div class="form-group col-lg-13">
@@ -65,33 +64,32 @@ include ("../model/banco.php");
                                         <div class="row">
 
                                         <div class="form-group col-lg-4">
-                                            <label for="exampleInputEmail1">Setor</label>
-                                            <input type="text" class="form-control" name="grava_ferias_setor" id="grava_ferias_setor" readonly=“true”>
+                                                <label for="exampleInputEmail1">Cargo</label>
+                                                <input type="text" class="form-control" name="grava_ferias_cargo" id="grava_ferias_cargo">
                                         </div>
 
                                         <div class="form-group col-lg-4">
-                                                <label for="exampleInputEmail1">Cargo</label>
-                                                <input type="text" class="form-control" name="grava_ferias_cargo" id="grava_ferias_cargo" readonly=“true”>
+                                            <label for="exampleInputEmail1">Setor</label>
+                                            <input type="text" class="form-control" name="grava_ferias_setor" id="grava_ferias_setor" >
                                         </div>
-
-                                            
+                                           
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Salário</label>
-                                                <input type="text" class="form-control" name="grava_ferias_salario" id="grava_ferias_salario" readonly=“true”>
+                                                <input type="text" class="form-control" name="grava_ferias_salario" id="grava_ferias_salario">
                                             </div>
                                             
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Abono pecuniário</label>
-                                                <select name="grava_ferias_setor" id="grava_ferias_setor" class="form-control" required>
+                                                <select name="grava_ferias_abono" id="grava_ferias_abono" class="form-control" >
                                                     <option value="">Selecionar</option>
                                                     <option value="Sim">Sim</option>
 				                                    <option value="Não">Não</option>
                                                 </select>
                                             </div>
                                             
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Adiantar 1ª parcela 13º</label>
-                                                <select name="grava_ferias_setor" id="grava_ferias_setor" class="form-control" required>
+                                                <select name="grava_ferias_adiantamento" id="grava_ferias_adiantamento" class="form-control" >
                                                     <option value="">Selecionar</option>
                                                     <option value="Sim">Sim</option>
                                                     <option value="Não">Não</option>
@@ -99,21 +97,15 @@ include ("../model/banco.php");
                                             </div>
                                             
 
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Data inicial</label>
-                                                <input type="date" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
+                                                <input type="date" class="form-control" name="grava_ferias_data" id="grava_ferias_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
                                             </div>
-                                            
-                                            <div class="form-group col-lg-3">
-                                                <label for="exampleInputEmail1">Término</label>
-                                                <input type="date" class="form-control" name="grava_promocao_data" id="grava_promocao_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
-                                            </div>
-
                                             
                                             </fieldset>
                                             
                                             <div class="teste">
-                                            <button type="submit" class="btn btn-secondary">Concluir agendamento</button>
+                                            <button type="submit" class="btn btn-primary">Concluir agendamento</button>
                                             </div>
                                  
                                 </form>
