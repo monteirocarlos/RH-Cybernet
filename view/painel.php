@@ -62,21 +62,37 @@ include ("../model/banco.php");
                                      <h1><?php echo $row['total']; ?></h1>
                                     
                                     </div>
+                                   
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="aniversariantes.php">Aniversariantes do Mês</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
+                                
                                 </div>
                             </div>
+                            
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body"><br><h5>EM DESENVOLVIMENTO</h5></div>
+                                    <div class="card-body">
+                                    
+                                    <?php
+                                    $sql="SELECT count(data_inicial) AS total FROM tb_ferias WHERE DATE_FORMAT(tb_ferias.data_inicial,'%m') = 
+                                    DATE_FORMAT((CURDATE()),'%m')";
+                                    $result=mysqli_query($mysqli,$sql);
+                                    // Associative array
+                                    $row=mysqli_fetch_assoc($result);?>
+                                     <h1><?php echo $row['total']; ?></h1>
+                                     
+                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Colaboradores em período de férias</a>
+                                        <a class="small text-white stretched-link" href="#">Colaboradores período de férias</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
+                            
+                            
+                            
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body"><br><h5>EM DESENVOLVIMENTO</h5></div>
