@@ -40,12 +40,13 @@ include ("../model/banco.php");
                                 <tbody>
                                     <td style="display:none;"><?php echo $dados['id_colaborador'];?></td>
                                     <td><?php echo $dados['nome'];?></td>
-                                    <td><?php echo $dados ['nascimento'];?></td> 
+                                    <td><?php echo date('d/m/Y', strtotime($dados['nascimento']));?></td>
+
                                     <?php } ?> 
                             </tbody>  
                             </table>
                         </div>        
-                    </div>    
+                       </div>
 
                     <div class="card-header bg-dark text-light"></i>Aniversariantes do mês</div>
                     <div class="card-body">
@@ -58,12 +59,13 @@ include ("../model/banco.php");
                                 <tbody>
                                     <td style="display:none;"><?php echo $dados['id_colaborador'];?></td>
                                     <td><?php echo $dados['nome'];?></td>
-                                    <td><?php echo $dados ['nascimento'];?></td> 
+                                    <td><?php echo date('d/m/Y', strtotime($dados['nascimento']));?></td>
                                     <?php } ?> 
                             </tbody>  
                             </table>
                         </div>        
                 </div> 
+            
 
                 <?php include "footer.php" ?>
                 </div>
