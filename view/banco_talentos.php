@@ -60,11 +60,11 @@ include ("../model/banco.php");
                                                 <label for="exampleInputEmail1">Avaliação do canditado</label>
                                                 <select name="grava_banco_avaliacao" id="grava_banco_avaliacao" class="form-control" >
                                                     <option value="">Selecione...</option>
-                                                    <option value="Sim">Ótimo</option>
-                                                    <option value="Não">Bom</option>
-                                                    <option value="Não">Regular</option>
-                                                    <option value="Não">Ruim</option>
-                                                    <option value="Não">Péssimo</option>
+                                                    <option value="Ótimo">Ótimo</option>
+                                                    <option value="Bom">Bom</option>
+                                                    <option value="Regular">Regular</option>
+                                                    <option value="Ruim">Ruim</option>
+                                                    <option value="Péssimo">Péssimo</option>
                                                 </select>
                                             </div>
                                             

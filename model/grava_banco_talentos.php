@@ -4,7 +4,7 @@ include "banco.php";
 
 $candidato = $_POST["grava_banco_canditado"];
 $setor = $_POST["grava_banco_setor"];
-$avalicao = $_POST["grava_banco_avaliacao"];
+$avaliacao = $_POST["grava_banco_avaliacao"];
 $data_processo = ($_POST["grava_banco_data"]);
 
 
@@ -16,7 +16,7 @@ if (isset ($_FILES['grava_banco_arquivo'])){
     
     move_uploaded_file($_FILES['grava_banco_arquivo']['tmp_name'], $diretorio.$novo_nome);
 
-    $executa ="INSERT INTO tb_talentos (canditado, setor, avaliacao, data_processo, arquivo) VALUES ('$canditado', '$setor', '$avaliacao', '$data_processo', '$novo_nome')";
+    $executa ="INSERT INTO tb_talentos (candidato, setor, avaliacao, data_processo, arquivo) VALUES ('$candidato', '$setor', '$avaliacao', '$data_processo', '$novo_nome')";
 
     $query = $mysqli->query($executa);
 
