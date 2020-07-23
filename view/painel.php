@@ -32,7 +32,7 @@ include ("../model/banco.php");
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-secondary text-white mb-4">
-                                    <div class="card-body">
+                                    <div class="card-body text-center">
                                     
                                    <?php
                                     $sql="SELECT count(id_colaborador) AS total FROM tb_colaboradores";
@@ -51,7 +51,7 @@ include ("../model/banco.php");
 
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">
+                                    <div class="card-body text-center">
                                     
                                     <?php
                                     $sql="SELECT count(nascimento) AS total FROM tb_colaboradores WHERE DATE_FORMAT(tb_colaboradores.nascimento,'%m') = 
@@ -73,7 +73,7 @@ include ("../model/banco.php");
                             
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">
+                                    <div class="card-body text-center">
                                     
                                     <?php
                                     $sql="SELECT count(data_inicial) AS total FROM tb_ferias WHERE DATE_FORMAT(tb_ferias.data_inicial,'%m') = 
@@ -85,19 +85,17 @@ include ("../model/banco.php");
                                      
                                      </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Colaboradores período de férias</a>
+                                        <a class="small text-white stretched-link" href="#">Férias no mês</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             
-                            
-                            
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body"><br><h5>EM DESENVOLVIMENTO</h5></div>
+                                    <div class="card-body text-center"><br><h5>EM DESENVOLVIMENTO</h5></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Detalhes</a>
+                                        <a class="small text-white stretched-link" href="#">Colaboradores desligados no mês</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

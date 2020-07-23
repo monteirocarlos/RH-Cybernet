@@ -40,7 +40,7 @@ include ("../model/banco.php");
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="colaboradores.php">Colaboradores</a>
                                 <a class="nav-link" href="setores.php">Setores</a><a class="nav-link" href="cargos.php">Cargos</a><a class="nav-link" href="promocoes.php">Promoções</a><a class="nav-link" href="aniversariantes.php">Aniversariantes</a>
-                                <a class="nav-link" href="ferias.php">Controle de Férias</a>
+                                <a class="nav-link" href="ferias.php">Controle de Férias</a><a class="nav-link" href="banco_talentos.php">Banco de talentos</a>
                                 </nav>
                             </div>
                             
