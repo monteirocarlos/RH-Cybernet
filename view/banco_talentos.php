@@ -31,19 +31,20 @@ include ("../model/banco.php");
                     <h1>BANCO DE TALENTOS</h1>
                     </div>
                     <br>
-                    <form role="form" method="POST" action="../model/grava_ferias.php">
+                    
+                    <form role="form" method="POST" action="../model/grava_banco_talentos.php" enctype="multipart/form-data">
                                     <fieldset>
                                     
                                     <div class="row">
                                     
                                     <div class="form-group col-lg-12">
                                                 <label for="exampleInputEmail1">Nome do canditado</label>
-                                                <input type="text" class="form-control" name="grava_ferias_cargo" id="grava_ferias_cargo">
+                                                <input type="text" class="form-control" name="grava_banco_canditado" id="grava_banco_canditado" placeholder="Insira o nome completo">
                                     </div>
       
                                     <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Setor correspondente</label>
-                                                <select name="id_setor" id="id_setor" class="form-control" required>
+                                                <select name="grava_banco_setor" id="grava_banco_setor" class="form-control">
                                                     <option value="">Selecione...</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_setores";
@@ -57,7 +58,7 @@ include ("../model/banco.php");
 
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Avaliação do canditado</label>
-                                                <select name="grava_ferias_adiantamento" id="grava_ferias_adiantamento" class="form-control" >
+                                                <select name="grava_banco_avaliacao" id="grava_banco_avaliacao" class="form-control" >
                                                     <option value="">Selecione...</option>
                                                     <option value="Sim">Ótimo</option>
                                                     <option value="Não">Bom</option>
@@ -69,11 +70,11 @@ include ("../model/banco.php");
                                             
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Data avaliativa</label>
-                                                <input type="date" class="form-control" name="grava_ferias_data" id="grava_ferias_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
+                                                <input type="date" class="form-control" name="grava_banco_data" id="grava_banco_data" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)">
                                             </div>
                                             
                                             <div class="form-group col-lg-12">
-                                                <input type="file"  name="grava_ferias_cargo" id="grava_ferias_cargo">
+                                                <input type="file"  name="grava_banco_arquivo" id="grava_banco_arquivo">
                                              </div>
                                             
                                             </fieldset>
