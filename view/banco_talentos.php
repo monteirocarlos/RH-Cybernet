@@ -99,8 +99,46 @@ include ("../model/banco.php");
                                 </form>
                     </div>
                     </div>
-                    </div>
+                    </div> 
                 </main>
+
+                <div class="card-header"></i>Histórico banco de talentos</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered cores"  id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th style="display:none;">ID</th>
+                                        <th>Candidato</th>
+                                        <th>Setor correspondente</th>
+                                        <th>Avaliação</th>
+                                        <th>Data avaliativa</th>
+                                        <th style="display:none;">Currículo</th>
+                                        <th>Ações</th>                      
+                                    </tr>
+                                </thead>
+
+                                <?php 
+                                $lista_talentos = "SELECT * FROM tb_talentos";
+                                $con = $mysqli->query($lista_talentos) or die ($mysqli->error);
+                                while($dados = $con->fetch_array()){ ?>
+                                
+                                <tbody class="cores">
+                                    <td style="display:none;"><?php echo $dados['id_talento'];?></td>
+                                    <td><?php echo $dados['candidato'];?></td>
+                                    <td><?php echo $dados['setor'];?></td>
+                                    <td><?php echo $dados['avaliacao'];?></td>
+                                    <td><?php echo date('d/m/Y', strtotime($dados['data_processo']));?></td>
+                                    <td>
+                                    <button type="submit" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o canditado: <?php echo $dados['candidato'];?> ?'))
+		                            location.href='../model/delete_talentos.php?id_talento=<?php echo $dados['id_talento']; ?>';" ></button>
+                                    </td>
+                                    <?php } ?>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                
             <?php include "footer.php" ?>
             </div>
             </div>
