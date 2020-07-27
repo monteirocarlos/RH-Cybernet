@@ -129,9 +129,9 @@ include ("../model/banco.php");
                                     <td><?php echo $dados['setor'];?></td>
                                     <td><?php echo $dados['avaliacao'];?></td>
                                     <td><?php echo date('d/m/Y', strtotime($dados['data_processo']));?></td>
-                                    <td><a  href="../model/upload/<?php echo $dados['arquivo'];?>" target="_blank"><?php echo $dados['arquivo'];?></a></td>   
+                                    <td><a href="../model/upload/<?php echo $dados['arquivo'];?>" target="_blank"><?php echo $dados['arquivo'];?></a></td>   
                                     <td>
-                                    <button type="submit" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o canditado: <?php echo $dados['candidato'];?> ?'))
+                                    <button type="button" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o canditado: <?php echo $dados['candidato'];?> ?'))
 		                            location.href='../model/delete_talentos.php?id_talento=<?php echo $dados['id_talento']; ?>';" ></button>
                                     </td>
                                     <?php } ?>

@@ -20,7 +20,7 @@ if (isset ($_FILES['grava_banco_arquivo'])){
 
     $query = $mysqli->query($executa);
 
-echo"<script language='javascript' type='text/javascript'>alert('Cargo cadastrado!');window.location.href='../view/banco_talentos.php'</script>";
+echo"<script language='javascript' type='text/javascript'>alert('Canditado cadastrado!');window.location.href='../view/banco_talentos.php'</script>";
   
 }
 
