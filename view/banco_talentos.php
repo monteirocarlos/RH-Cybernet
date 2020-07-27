@@ -29,9 +29,22 @@ include ("../model/banco.php");
                     <div class="text-center"> 
                     <br>
                     <h1>BANCO DE TALENTOS</h1>
+                    <br>
+                    <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#modal_banco_talentos" >Novo canditado</button>&nbsp 		
                     </div>
                     <br>
                     
+
+                    <div class="modal fade" id="modal_banco_talentos" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editarModalLabel">Inserir novo canditado</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <div class="modal-body">
                     <form role="form" method="POST" action="../model/grava_banco_talentos.php" enctype="multipart/form-data">
                                     <fieldset>
                                     
@@ -85,9 +98,9 @@ include ("../model/banco.php");
                                  
                                 </form>
                     </div>
-
+                    </div>
+                    </div>
                 </main>
-               
             <?php include "footer.php" ?>
             </div>
             </div>
