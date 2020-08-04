@@ -1,6 +1,5 @@
 <?php
 include "banco.php";
-include "data.php";
 $nome = $_POST["edita_colaborador_nome"];
 
 $cpf = ($_POST["edita_colaborador_cpf"]);
