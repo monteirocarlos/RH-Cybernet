@@ -253,11 +253,11 @@ include ("../model/banco.php");
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nascimento</label>
-                                                <input type="date" class="form-control" name="edita_colaborador_nascimento" id="edita_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
+                                                <input type="text" class="form-control" name="edita_colaborador_nascimento" id="edita_colaborador_nascimento" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Admissão</label>
-                                                <input type="date" class="form-control" name="edita_colaborador_admissao" id="edita_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
+                                                <input type="text" class="form-control" name="edita_colaborador_admissao" id="edita_colaborador_admissao" placeholder="dd/mm/aaaa" maxlength="10" OnKeyPress="formatar('##/##/####', this)" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Sexo</label>

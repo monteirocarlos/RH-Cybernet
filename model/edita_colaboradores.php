@@ -1,11 +1,12 @@
 <?php
 include "banco.php";
+include "data.php";
 $nome = $_POST["edita_colaborador_nome"];
 
 $cpf = ($_POST["edita_colaborador_cpf"]);
 $rg = ($_POST["edita_colaborador_rg"]);
-$nascimento = $_POST["edita_colaborador_nascimento"];
-$admissao = $_POST["edita_colaborador_admissao"];
+$nascimento = implode("-",array_reverse(explode("/", $_POST["edita_colaborador_nascimento"])));
+$admissao = implode("-",array_reverse(explode("/", $_POST["edita_colaborador_admissao"])));
 $sexo = $_POST["edita_colaborador_sexo"];
 $telefone = ($_POST["edita_colaborador_telefone"]);
 $celular = ($_POST["edita_colaborador_celular"]);

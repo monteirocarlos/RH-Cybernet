@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,6 +19,8 @@
 			<div class="hero-body">
 				<div class="container has-text-centered">
 					<div class="column is-4 is-offset-4">
+					<img src="view/img/logo.svg" alt="Logo Cybernet">
+					<br><br>
 					<?php
                     if(isset($_SESSION['nao_autenticado'])):
                     ?>

@@ -88,7 +88,7 @@ include ("../model/banco.php");
                                             
                                             <div class="form-group col-lg-12">
                                                 <input type="file"  name="grava_banco_arquivo" id="grava_banco_arquivo">
-                                             </div>
+                                            </div>
                                             
                                             </fieldset>
 
