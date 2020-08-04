@@ -120,5 +120,21 @@ include ("../model/banco.php");
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-demo.js"></script>
+        <script>
+        window.addEventListener("keydown", ev => {
+        switch( true ) {
+            case ev.keyCode === 123:
+            case ev.ctrlKey && ev.shiftKey && event.keyCode == 74:
+            case ev.ctrlKey && ev.keyCode == 85:
+            console.log("Tecla bloqueada");
+            ev.preventDefault();
+            return false;
+        }
+        })
+        window.addEventListener("contextmenu", ev => {
+        ev.preventDefault();
+        return false;
+        });
+    </script>
     </body>
 </html>

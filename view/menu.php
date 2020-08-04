@@ -50,7 +50,7 @@ include ("../model/banco.php");
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
-                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="usuarios.php">Registrar usuário</a><a class="nav-link" href="password.html">Custos com beneficios</a></nav>
+                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="usuarios.php">Registrar usuário</a></nav>
                                     </div>
                             </div> 
                     </div>

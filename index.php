@@ -53,3 +53,20 @@ session_start();
 </section>
 	</body>
 </html>
+
+ <script>
+        window.addEventListener("keydown", ev => {
+        switch( true ) {
+            case ev.keyCode === 123:
+            case ev.ctrlKey && ev.shiftKey && event.keyCode == 74:
+            case ev.ctrlKey && ev.keyCode == 85:
+            console.log("Tecla bloqueada");
+            ev.preventDefault();
+            return false;
+        }
+        })
+        window.addEventListener("contextmenu", ev => {
+        ev.preventDefault();
+        return false;
+        });
+    </script>

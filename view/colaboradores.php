@@ -239,15 +239,15 @@ include ("../model/banco.php");
 
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Nome completo</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_nome" id="edita_colaborador_nome">
+                                                <input type="text" class="form-control" name="edita_colaborador_nome" id="edita_colaborador_nome" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">CPF</label>
-                                                <input type="text" class="form-control " name="edita_colaborador_cpf" id="edita_colaborador_cpf" placeholder="Insira o CPF" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)">
+                                                <input type="text" class="form-control " name="edita_colaborador_cpf" id="edita_colaborador_cpf" placeholder="Insira o CPF" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)" required>
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">RG</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_rg" id="edita_colaborador_rg" maxlength="12" OnKeyPress="formatar('##.###.###-#', this)" placeholder="Insira o RG">
+                                                <input type="text" class="form-control" name="edita_colaborador_rg" id="edita_colaborador_rg" maxlength="12" OnKeyPress="formatar('##.###.###-#', this)" placeholder="Insira o RG"required>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -261,7 +261,7 @@ include ("../model/banco.php");
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Sexo</label>
-                                                <select name="edita_colaborador_sexo" id="edita_colaborador_sexo" class="form-control">
+                                                <select name="edita_colaborador_sexo" id="edita_colaborador_sexo" class="form-control" required>
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_sexo ORDER BY sexo";
@@ -278,20 +278,20 @@ include ("../model/banco.php");
                                         <div class="row">
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Telefone</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_telefone"id="edita_colaborador_telefone" maxlength="12" OnKeyPress="formatar('## ####-####', this)" placeholder="Número residencial" />
+                                                <input type="text" class="form-control" name="edita_colaborador_telefone"id="edita_colaborador_telefone" maxlength="12" OnKeyPress="formatar('## ####-####', this)" placeholder="Número residencial" required/>
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Celular</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_celular"id="edita_colaborador_celular" maxlength="13" OnKeyPress="formatar('## #####-####', this)" placeholder="Insira o celular" />
+                                                <input type="text" class="form-control" name="edita_colaborador_celular"id="edita_colaborador_celular" maxlength="13" OnKeyPress="formatar('## #####-####', this)" placeholder="Insira o celular" required/>
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">E-mail</label>
-                                                <input type="email" class="form-control" name="edita_colaborador_email"id="edita_colaborador_email" maxlength="15" placeholder="Insira o e-mail" />
+                                                <input type="email" class="form-control" name="edita_colaborador_email"id="edita_colaborador_email" maxlength="15" placeholder="Insira o e-mail" required/>
                                             </div>
                                             
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Condição</label>
-                                                <select name="edita_colaborador_condicao" id="edita_colaborador_condicao" class="form-control">
+                                                <select name="edita_colaborador_condicao" id="edita_colaborador_condicao" class="form-control" required>
                                                     <option value="">Selecione</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_condicao";
@@ -308,30 +308,28 @@ include ("../model/banco.php");
                                         <div class="row">
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">CEP</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_cep"id="edita_colaborador_cep"  placeholder="CEP" maxlength="9" OnKeyPress="formatar('#####-###', this)" />
+                                                <input type="text" class="form-control" name="edita_colaborador_cep"id="edita_colaborador_cep"  placeholder="CEP" maxlength="9" OnKeyPress="formatar('#####-###', this)" required/>
                                             </div>
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Rua</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_rua"id="edita_colaborador_rua" maxlength="15" placeholder="Rua" />
+                                                <input type="text" class="form-control" name="edita_colaborador_rua"id="edita_colaborador_rua" maxlength="15" placeholder="Rua" required/>
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Bairro</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_bairro"id="edita_colaborador_bairro" maxlength="15" placeholder="Bairro" />
+                                                <input type="text" class="form-control" name="edita_colaborador_bairro"id="edita_colaborador_bairro" maxlength="15" placeholder="Bairro" required/>
                                             </div>
                                             <div class="form-group col-lg-2">
                                                 <label for="exampleInputEmail1">Nº</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_numero"id="edita_colaborador_numero" maxlength="4" placeholder="Número"/>
+                                                <input type="text" class="form-control" name="edita_colaborador_numero"id="edita_colaborador_numero" maxlength="4" placeholder="Número" required/>
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">Cidade</label>
-                                                <input type="text" class="form-control" name="edita_colaborador_cidade"id="edita_colaborador_cidade" maxlength="15" placeholder="Cidade" />
+                                                <input type="text" class="form-control" name="edita_colaborador_cidade"id="edita_colaborador_cidade" maxlength="15" placeholder="Cidade" required/>
                                             </div>
                                         </div> 
                                         <div class="box-actions teste">
                                             <button type="submit" class="btn btn-primary">Editar colaborador</button>
                                         </div>
-                                        
-                                 
                                     </fieldset>
                                 </form>
                             </div>		
@@ -534,6 +532,23 @@ function editar(e) {
   $("#view_colaborador_salario").val(salario); }
 </script>
 
+<script>
+        window.addEventListener("keydown", ev => {
+        switch( true ) {
+            case ev.keyCode === 123:
+            case ev.ctrlKey && ev.shiftKey && event.keyCode == 74:
+            case ev.ctrlKey && ev.keyCode == 85:
+            console.log("Tecla bloqueada");
+            ev.preventDefault();
+            return false;
+        }
+        })
+        window.addEventListener("contextmenu", ev => {
+        ev.preventDefault();
+        return false;
+        });
+        </script>
+
 <script type="text/javascript" >
     function limpa_formulário_cep() {
             document.getElementById('grava_colaborador_rua').value=("");
@@ -573,8 +588,6 @@ function editar(e) {
         }
     };
     </script>
-
-    
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
             <script type='text/javascript'>
                 $(document).ready(function(){

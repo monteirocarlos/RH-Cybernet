@@ -147,5 +147,21 @@ include ("../model/banco.php");
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script>
+        window.addEventListener("keydown", ev => {
+        switch( true ) {
+            case ev.keyCode === 123:
+            case ev.ctrlKey && ev.shiftKey && event.keyCode == 74:
+            case ev.ctrlKey && ev.keyCode == 85:
+            console.log("Tecla bloqueada");
+            ev.preventDefault();
+            return false;
+        }
+        })
+        window.addEventListener("contextmenu", ev => {
+        ev.preventDefault();
+        return false;
+        });
+        </script>
     </body>
 </html>
