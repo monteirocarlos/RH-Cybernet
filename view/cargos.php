@@ -80,7 +80,7 @@ include ("../model/banco.php");
                                             
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Salário</label>
-                                                <input type="text" class="form-control" name="id_salario" id="id_salario" placeholder="Insira o salário" required>
+                                                <input type="currency" value="" class="form-control" name="id_salario" id="id_salario" placeholder="Insira o salário" required>
                                             </div>
 
                                             <div class="form-group col-lg-12">
@@ -197,7 +197,7 @@ include ("../model/banco.php");
                                             
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Salário</label>
-                                                <input type="text" class="form-control" name="id_edt_salario" id="id_edt_salario">
+                                                <input type="text" value="" class="form-control" name="id_edt_salario" id="id_edt_salario">
                                             </div>
 
                                             <div class="form-group col-lg-12">
@@ -336,5 +336,44 @@ include ("../model/banco.php");
             return false;
             });
             </script>
+    
+    <script>
+    var currencyInput = document.querySelector('input[type="currency"]')
+        var currency = 'BRL' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml
+
+        // format inital value
+        onBlur({target:currencyInput})
+
+        // bind event listeners
+        currencyInput.addEventListener('focus', onFocus)
+        currencyInput.addEventListener('blur', onBlur)
+
+
+        function localStringToNumber( s ){
+        return Number(String(s).replace(/[^0-9.-]+/g,""))
+        }
+
+        function onFocus(e){
+        var value = e.target.value;
+        e.target.value = value ? localStringToNumber(value) : ''
+        }
+
+        function onBlur(e){
+        var value = e.target.value
+
+        var options = {
+            maximumFractionDigits : 2,
+            currency              : currency,
+            style                 : "currency",
+            currencyDisplay       : "symbol"
+        }
+        
+        e.target.value = value 
+            ? localStringToNumber(value).toLocaleString(undefined, options)
+            : ''
+        }
+    </script>
+    
+    
     </body>
 </html>

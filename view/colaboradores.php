@@ -286,7 +286,7 @@ include ("../model/banco.php");
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="exampleInputEmail1">E-mail</label>
-                                                <input type="email" class="form-control" name="edita_colaborador_email"id="edita_colaborador_email" maxlength="15" placeholder="Insira o e-mail" required/>
+                                                <input type="email" class="form-control" name="edita_colaborador_email"id="edita_colaborador_email" maxlength="30" placeholder="Insira o e-mail" required/>
                                             </div>
                                             
                                             <div class="form-group col-lg-3">
@@ -392,7 +392,7 @@ include ("../model/banco.php");
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">E-mail</label>
-                                                <input type="email" class="form-control" name="view_colaborador_email"id="view_colaborador_email" maxlength="15" placeholder="Insira o e-mail" disabled=""/>
+                                                <input type="email" class="form-control" name="view_colaborador_email"id="view_colaborador_email" maxlength="30" placeholder="Insira o e-mail" disabled=""/>
                                             </div>
                                         </div>
 
@@ -440,6 +440,9 @@ include ("../model/banco.php");
                                                 <label for="exampleInputEmail1">Condição</label>
                                                 <input type="text" class="form-control" name="view_colaborador_condicao"id="view_colaborador_condicao"  disabled=""/>
                                             </div>
+
+                                            
+
 
                                         </div>
                                     </fieldset>
