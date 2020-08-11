@@ -30,7 +30,7 @@ include ("../model/banco.php");
                     <br>
                     <h1>VAGAS</h1>
                     <br>
-                    <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#modal_banco_talentos" >Nova vaga</button>&nbsp 		
+                    <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#modal_banco_talentos">Nova vaga</button>&nbsp 		
                     </div>
                     <br>
                     
@@ -47,19 +47,19 @@ include ("../model/banco.php");
                             <div class="modal-body">
                             
                             
-                            <form role="form" method="POST" action="../model/grava_banco_talentos.php" enctype="multipart/form-data">
+                            <form role="form" method="POST" action="../model/grava_vagas.php" enctype="multipart/form-data">
                                     <fieldset>
                                     
                                     <div class="row">
                                     
                                     <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Título da vaga</label>
-                                                <input type="text" class="form-control" name="grava_banco_canditado" id="grava_banco_canditado" placeholder="Insira a vaga">
+                                                <input type="text" class="form-control" name="grava_vaga_vagas" id="grava_vaga_vagas" placeholder="Insira a vaga">
                                     </div>
       
                                     <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Setor correspondente</label>
-                                                <select name="grava_banco_setor" id="grava_banco_setor" class="form-control">
+                                                <select name="grava_vaga_setor" id="grava_vaga_setor" class="form-control">
                                                     <option value="">Selecione...</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_setores";
@@ -73,19 +73,19 @@ include ("../model/banco.php");
 
                                             <div class="form-group col-lg-4">
                                                 <label for="exampleInputEmail1">Período de trabalho</label>
-                                                <select name="grava_banco_avaliacao" id="grava_banco_avaliacao" class="form-control" >
+                                                <select name="grava_vaga_periodo" id="grava_vaga_periodo" class="form-control" >
                                                     <option value="">Selecione...</option>
-                                                    <option value="Ótimo">Tempo Integral</option>
-                                                    <option value="Bom">Estágio</option>
-                                                    <option value="Regular">Prestador de serviços</option>
-                                                    <option value="Ruim">Meio período</option>
-                                                    <option value="Péssimo">Jovem aprendiz</option>
+                                                    <option value="Tempo Integral">Tempo Integral</option>
+                                                    <option value="Estágio">Estágio</option>
+                                                    <option value="Prestador de serviços">Prestador de serviços</option>
+                                                    <option value="Meio período">Meio período</option>
+                                                    <option value="Jovem aprendiz">Jovem aprendiz</option>
                                                 </select>
                                             </div>
 
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Nível</label>
-                                                <select name="id_nivel" id="id_nivel" class="form-control" required>
+                                                <select name="grava_vaga_nivel" id="grava_vaga_nivel" class="form-control" required>
                                                     <option value="">Selecione...</option>
                                                     <?php
 					                                $result_cat_post = "SELECT * FROM tb_categoria";
@@ -99,16 +99,16 @@ include ("../model/banco.php");
 
                                             <div class="form-group col-lg-6">
                                                 <label for="exampleInputEmail1">Status da vaga</label>
-                                                <select name="grava_banco_avaliacao" id="grava_banco_avaliacao" class="form-control" >
+                                                <select name="grava_vaga_status" id="grava_vaga_status" class="form-control" >
                                                     <option value="">Selecione...</option>
-                                                    <option value="Ótimo">Disponível</option>
-                                                    <option value="Bom">Encerrado</option>
+                                                    <option value="Disponível">Disponível</option>
+                                                    <option value="Encerrado">Encerrado</option>
                                                 </select>
                                             </div>
 
                                             <div class="form-group col-lg-12">
                                                 <label for="exampleInputEmail1">Descrição da vaga</label>
-                                                <textarea type="textarea" class="form-control" name="id_descricao" id="id_descricao" placeholder="Insira a descrição da vaga" required></textarea>
+                                                <textarea type="textarea" class="form-control" name="grava_vaga_descricao" id="grava_vaga_descricao" placeholder="Insira a descrição da vaga" required></textarea>
                                             </div>
                                             </fieldset>
 
@@ -124,37 +124,35 @@ include ("../model/banco.php");
                     </div> 
                 </main>
 
-                <div class="card-header"></i>Histórico banco de talentos</div>
+                <div class="card-header"></i>Vagas disponíveis em andamento</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered cores"  id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th style="display:none;">ID</th>
-                                        <th>Candidato</th>
+                                        <th>Título da vaga</th>
                                         <th>Setor correspondente</th>
-                                        <th>Avaliação</th>
-                                        <th>Data avaliativa</th>
-                                        <th>Currículo</th>
+                                        <th>Período de trabalho</th>
+                                        <th>Nível</th>
                                         <th>Ações</th>                      
                                     </tr>
                                 </thead>
 
                                 <?php 
-                                $lista_talentos = "SELECT * FROM tb_talentos";
+                                $lista_talentos = "SELECT * FROM tb_vagas where status_vaga = 'Disponível'";
                                 $con = $mysqli->query($lista_talentos) or die ($mysqli->error);
                                 while($dados = $con->fetch_array()){ ?>
                                 
                                 <tbody class="cores">
-                                    <td style="display:none;"><?php echo $dados['id_talento'];?></td>
-                                    <td><?php echo $dados['candidato'];?></td>
+                                    <td style="display:none;"><?php echo $dados['id_vaga'];?></td>
+                                    <td><?php echo $dados['vagas'];?></td>
                                     <td><?php echo $dados['setor'];?></td>
-                                    <td><?php echo $dados['avaliacao'];?></td>
-                                    <td><?php echo date('d/m/Y', strtotime($dados['data_processo']));?></td>
-                                    <td><a href="../model/upload/<?php echo $dados['arquivo'];?>" target="_blank"><?php echo $dados['arquivo'];?></a></td>   
+                                    <td><?php echo $dados['periodo'];?></td>
+                                    <td><?php echo $dados['nivel'];?></td>
                                     <td>
-                                    <button type="button" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o canditado: <?php echo $dados['candidato'];?> ?'))
-		                            location.href='../model/delete_talentos.php?id_talento=<?php echo $dados['id_talento']; ?>';" ></button>
+                                    <button type="button" class="fas fa-trash ml-1" title="Deletar" onclick="if(confirm('Tem certeza que deseja deletar o canditado: <?php echo $dados['vagas'];?> ?'))
+		                            location.href='../model/delete_vagas.php?id_vaga=<?php echo $dados['id_vaga']; ?>';" ></button>
                                     </td>
                                     <?php } ?>
                             </tbody>
